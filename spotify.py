@@ -4,6 +4,7 @@ import spotipy.util as util
 import json
 
 scope = 'user-library-read'
+LIMIT = 50
 
 if len(sys.argv) > 1:
     username = sys.argv[1]
@@ -18,12 +19,29 @@ token = util.prompt_for_user_token(username, scope)
 if not token: 
     print("Can't get token for", username)
 sp = spotipy.Spotify(auth=token)
-results = sp.user_playlist_tracks('UroAv2poQoWSvUOfch8wmg', playlist_id='6JIq8OVNcyuYk4vDDRqflZ')
-tracks = [i['track']['id'] for i in results['items']]
-tracks_features = sp.audio_features(tracks)
+results = sp.user_playlist_tracks(
+	'UroAv2poQoWSvUOfch8wmg', 
+	playlist_id='6Jpt5r9KD8FEUDioBFV0r0',
+	limit=LIMIT,
+)
+track_infos = []
+for i in results['items']:
+	track_infos.append({
+		'id': i['track']['id'],
+		'name': i['track']['name'],
+		'popularity': i['track']['popularity'],
+		'artist': i['track']['artists'][0]['name'] if len(i['track']['artists']) > 0 else None,
+	})
+track_ids = [i['id'] for i in track_infos]
 
+tracks_features = sp.audio_features(track_ids)
+for idx, track in enumerate(tracks_features):
+	track['name'] = track_infos[idx]['name']
+	track['popularity'] = track_infos[idx]['popularity']
+	track['artist'] = track_infos[idx]['artist']
+print(len(tracks_features))
 
-with open('spotify.csv', mode='w') as f:
+with open('spotify-1.json', mode='w') as f:
     f.write(json.dumps(tracks_features, indent=2))
      
 # import spotipy
