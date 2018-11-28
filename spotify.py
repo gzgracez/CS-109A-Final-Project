@@ -10,37 +10,37 @@ PLAYLIST_1_LEN = 163
 PLAYLIST_0_LEN = 897
 
 def get_track_features_offset(playlist_id, offset, in_playlist):
-	results = sp.user_playlist_tracks(
-		'UroAv2poQoWSvUOfch8wmg', 
-		playlist_id=playlist_id,
-		limit=LIMIT,
-		offset=offset,
-	)
-	track_infos = []
-	for i in results['items']:
-		track_infos.append({
-			'id': i['track']['id'],
-			'name': i['track']['name'],
-			'popularity': i['track']['popularity'],
-			'artist': i['track']['artists'][0]['name'] if len(i['track']['artists']) > 0 else None,
-		})
-	track_ids = [i['id'] for i in track_infos]
+    results = sp.user_playlist_tracks(
+        'UroAv2poQoWSvUOfch8wmg', 
+        playlist_id=playlist_id,
+        limit=LIMIT,
+        offset=offset,
+    )
+    track_infos = []
+    for i in results['items']:
+        track_infos.append({
+            'id': i['track']['id'],
+            'name': i['track']['name'],
+            'popularity': i['track']['popularity'],
+            'artist': i['track']['artists'][0]['name'] if len(i['track']['artists']) > 0 else None,
+        })
+    track_ids = [i['id'] for i in track_infos]
 
-	tracks_features = sp.audio_features(track_ids)
-	for idx, track in enumerate(tracks_features):
-		track['name'] = track_infos[idx]['name']
-		track['popularity'] = track_infos[idx]['popularity']
-		track['artist'] = track_infos[idx]['artist']
-		track['in_playlist'] = in_playlist
-	return tracks_features
+    tracks_features = sp.audio_features(track_ids)
+    for idx, track in enumerate(tracks_features):
+        track['name'] = track_infos[idx]['name']
+        track['popularity'] = track_infos[idx]['popularity']
+        track['artist'] = track_infos[idx]['artist']
+        track['in_playlist'] = in_playlist
+    return tracks_features
 
 def get_track_features(playlist_id, num_iters, in_playlist):
-	track_features = []
-	for i in range(num_iters):
-		track_features.extend(
-			get_track_features_offset(playlist_id, i * LIMIT, in_playlist)
-		)
-	return track_features
+    track_features = []
+    for i in range(num_iters):
+        track_features.extend(
+            get_track_features_offset(playlist_id, i * LIMIT, in_playlist)
+        )
+    return track_features
 
 
 # Setup
