@@ -34,7 +34,7 @@ The following features were recorded to help with visualization later, but not u
 
 Looking at the density plots above, we note a few things.
 
-First, some features that show clear differences in distribution between the playlist and non-playlist. 
+Some features that show clear differences in distribution between the playlist and non-playlist. 
 While non-playlist songs contain a roughly uniform distribution of energy values, playlist songs spike at an energy level between 0.2-0.4.
 Acousticness in playlist tracks is much higher on average, spiking around 0.8, while non-playlist tracks most frequently have acousticness values around 0.1.
 Instrumentalness is a particularly interesting feature. While the distribution non-playlist tracks is bimodal, peaking at around 0 and 0.9, playlist tracks have a few very well-defined peaks between 0 and 0.3. 
@@ -43,3 +43,4 @@ Playlist tracks have lower loudnesses on average, centering around -10, while no
 In terms of speechiness, the distribution for playlist tracks has a much lower variance and slightly lower expected value, centering around 0.3 while non-playlist tracks center around 0.4.
 Valence for non-playlist tracks is roughly uniformly distributed, while playlist tracks demonstrate a roughly normal distribution centered around 0.3.
 Finally in terms of popularity, playlist tracks show a peak in their distribution around 60, while non-playlist tracks have a more variable distribution with a peak between 45-55.
+The rest of the features are roughly similar in distribution between playlist and non-playlist tracks.
