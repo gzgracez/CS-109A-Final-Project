@@ -3,13 +3,14 @@
 - Lasso Variable Selection
 - k-NN
 
-- Interaction Term
-- Higher-degree Polynomial 
-- LDA/QDA
-
 - Classification Trees
 	- Bagging
 	- Boosting
 	- Random Forest
 	- Stacking
+
+- Interaction Term
+- Higher-degree Polynomial 
 - Neural Networks
+
+- LDA/QDA
