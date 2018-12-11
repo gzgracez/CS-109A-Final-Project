@@ -2,6 +2,7 @@ import sys
 import spotipy
 import spotipy.util as util
 import json
+import pandas as pd
 from math import ceil
 
 scope = 'user-library-read'
@@ -63,8 +64,12 @@ tracks_features0 = get_track_features('4B3qR5p6PD8nXXeq4C0Gz7', n_playlist0, 0)
 tracks_features1 = get_track_features('6Jpt5r9KD8FEUDioBFV0r0', n_playlist1, 1)
 tracks_features = tracks_features0 + tracks_features1
 
-with open('spotify.json', mode='w') as f:
-    f.write(json.dumps(tracks_features, indent=2))
+with open('spotify.csv', mode='w') as f:
+    df = pd.read_json(json.dumps(tracks_features))
+    f.write(df.to_csv())
+
+# with open('spotify.json', mode='w') as f:
+#     f.write(json.dumps(tracks_features, indent=2))
 
 # with open('spotify-0.json', mode='w') as f:
 #     f.write(json.dumps(tracks_features0, indent=2))

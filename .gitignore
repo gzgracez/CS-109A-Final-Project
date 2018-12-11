@@ -1,6 +1,7 @@
 MillionSongSubset/
 export-vars.sh
 run-spotify.sh
+.cache-gzgracez2
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
