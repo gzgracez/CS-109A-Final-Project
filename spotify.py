@@ -67,7 +67,7 @@ tracks_features0 = get_track_features('4B3qR5p6PD8nXXeq4C0Gz7', n_playlist0, 0)
 tracks_features1 = get_track_features('6Jpt5r9KD8FEUDioBFV0r0', n_playlist1, 1)
 tracks_features = tracks_features0 + tracks_features1
 
-with open('spotify-more.csv', mode='w') as f:
+with open('spotify-more2.csv', mode='w') as f:
     df = pd.read_json(json.dumps(tracks_features))
     f.write(df.to_csv())
 
