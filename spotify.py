@@ -7,8 +7,8 @@ from math import ceil
 
 scope = 'user-library-read'
 LIMIT = 50
-PLAYLIST_1_LEN = 484
-PLAYLIST_0_LEN = 895
+PLAYLIST_1_LEN = 2660
+PLAYLIST_0_LEN = 2492
 
 def get_track_features_offset(playlist_id, offset, in_playlist):
     results = sp.user_playlist_tracks(
@@ -27,7 +27,10 @@ def get_track_features_offset(playlist_id, offset, in_playlist):
         })
     track_ids = [i['id'] for i in track_infos]
 
-    tracks_features = sp.audio_features(track_ids)
+    try:
+        tracks_features = sp.audio_features(track_ids)
+    except:
+        return []
     for idx, track in enumerate(tracks_features):
         track['name'] = track_infos[idx]['name']
         track['popularity'] = track_infos[idx]['popularity']
@@ -64,7 +67,7 @@ tracks_features0 = get_track_features('4B3qR5p6PD8nXXeq4C0Gz7', n_playlist0, 0)
 tracks_features1 = get_track_features('6Jpt5r9KD8FEUDioBFV0r0', n_playlist1, 1)
 tracks_features = tracks_features0 + tracks_features1
 
-with open('spotify.csv', mode='w') as f:
+with open('spotify-more.csv', mode='w') as f:
     df = pd.read_json(json.dumps(tracks_features))
     f.write(df.to_csv())
 
