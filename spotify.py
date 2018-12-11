@@ -6,8 +6,8 @@ from math import ceil
 
 scope = 'user-library-read'
 LIMIT = 50
-PLAYLIST_1_LEN = 163
-PLAYLIST_0_LEN = 897
+PLAYLIST_1_LEN = 484
+PLAYLIST_0_LEN = 895
 
 def get_track_features_offset(playlist_id, offset, in_playlist):
     results = sp.user_playlist_tracks(
