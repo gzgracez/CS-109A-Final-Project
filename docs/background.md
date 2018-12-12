@@ -25,8 +25,8 @@ We then constructed and analyzed classification models based on this data.
 	- limitations include ordering of songs within playlists and incorporating situational characteristics that affect listeners
 + Future work includes incorporating personality, current emotional state, political situation, and cultural situation into music recommendations.
 
-[An Analysis of Approaches Taken in the ACM RecSys Challenge 2018 for Automatic Music Playlist Continuation](https://arxiv.org/pdf/1810.01520.pdf)
-+ In 2018, Spotify sponsored a challenge involving addressing the playlist continuation problem
+[An Analysis of Approaches Taken in the ACM RecSys Challenge 2018](https://arxiv.org/pdf/1810.01520.pdf)
++ In 2018, Spotify sponsored a challenge involving addressing the automatic music playlist continuation problem
 + Most accurate classifiers involved:
 	- Larger training sets produced better-performing models
 		- If training sets were subset, using a random subset of the playlist rather than the sequentially first songs in a playlist was most accurate in training a model
