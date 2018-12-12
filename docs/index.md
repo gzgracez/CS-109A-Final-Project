@@ -4,7 +4,9 @@ layout: default
 nav_order: 1
 ---
 # Overview
-<p><img src="img\spotify_icon.png" alt="spot"/>Hi</p>
+<p><img src="img/spotify_icon.png" alt="hi"/>Hi</p>
+![alt text](img/spotify_icon.png "Logo Title Text 1")
+
 For our final project, we created a best-performing model to help classify songs for Grace's playlist. 
 We used the Spotify API to download features for songs Grace selected as playlist-worthy and playlist-unworthy.
 After getting a grasp on the data, we built classifiers to predict whether a song should be in or out of her playlist.
