@@ -18,7 +18,7 @@ and then use that model to find her more songs for her playlist.
 We had three goals:
 1. to create the best performing model to classify songs as in or out of Grace's playlist
 2. to use that model to suggest new songs for Grace's playlist
-3. to produce a sleek interface using jekyll to display our analysis, so that others can replicate our method on their playlists
+3. to produce a sleek interface using <i>jekyll</i> to display our analysis, so that others can replicate our method on their playlists
 
 
 # Playlists
