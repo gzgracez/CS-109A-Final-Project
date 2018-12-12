@@ -45,13 +45,3 @@ We then constructed and analyzed classification models based on this data.
 + The title model performed very poorly compared to the other two models
 	- The authors acknowledge that using analysis beyond the literal words, ex. incorporating NLP methods, could help
 + An ensemble of all three models performed best
-
->here is a quote
-
-
-
-Here is *emph* and **bold**.
-
-Here is some inline math $\alpha = \frac{\beta}{\gamma}$ and, of-course, E rules:
-
-$$ G_{\mu\nu} + \Lambda g_{\mu\nu}  = 8 \pi T_{\mu\nu} . $$
