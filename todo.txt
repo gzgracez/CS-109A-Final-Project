@@ -15,3 +15,21 @@
 - Neural Networks
 
 - LDA/QDA
+
+
+AKSHITHA
+made notebook excellent
+make the accuracies better
+give descriptions for models
+produce a conclusions section in notebook where new songs are classified for grace
+maybe this means leaving some songs out of train + test?? and leaving them unlabeled?
+
+and then saying it classified these!! at the end.
+
+
+TEJAL
+
+finish background motivation
+lit review
+conclusions and analysis
+add logo and make style better
