@@ -4,8 +4,6 @@ layout: default
 nav_order: 1
 ---
 # Overview
-<p><img src="spotify_icon.png" alt="hi"/>Hi</p>
-![alt text](spotify_icon.png "Logo Title Text 1")
 
 For our final project, we created a best-performing model to help classify songs for Grace's playlist. 
 We used the Spotify API to download features for songs Grace selected as playlist-worthy and playlist-unworthy.
@@ -22,3 +20,5 @@ Our results, analysis, conclusions, and suggestions for moving forward can be fo
 # About Us
 We are Tejal Patwardhan, Akshitha Ramachandran, and Grace Zhang, Group 49 for Cs109a. 
 Special thanks to Pavlos Protopapas, Kevin Rader, and Rashmi Banthia for their assistance.
+
+![alt text](spotify_icon.png "Logo Title Text 1")
