@@ -8,7 +8,7 @@ nav_order: 1
 For our final project, we used the Spotify API help Grace curate her playlist. We had three goals:
 + to create the best performing model to classify songs as in or out of Grace's playlist
 + to use that model to suggest new songs for Grace's playlist
-+ to produce a user-friendly interface using jekyll to display our analysis, so that others can replicate our method on their playlists
++ to produce a sleek interface using jekyll to display our analysis, so that others can replicate our method on their playlists
 
 ## Playlists
 ### Grace's Favorites Playlist
