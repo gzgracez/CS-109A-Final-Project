@@ -4,7 +4,7 @@ layout: default
 nav_order: 2
 ---
 
-## Motivation
+# Motivation
 
 Spotify is a popular music streaming platform that allows users to curate their own playlists. 
 Music recommender systems help users find songs based on what they might like. 
@@ -24,14 +24,14 @@ We had three goals:
 3. to produce a sleek interface using jekyll to display our analysis, so that others can replicate our method on their playlists
 
 
-## Playlists
-### Grace's Favorites Playlist
+# Playlists
+## Grace's Favorites Playlist
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/6Jpt5r9KD8FEUDioBFV0r0" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-### Grace's Not-So-Favorites Playlist
+## Grace's Not-So-Favorites Playlist
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 
-## Literature Review 
+# Literature Review 
 [Current Challenges and Visions in Music Recommender Systems Research](https://arxiv.org/pdf/1710.03208.pdf)
 + Biggest current issues in MRS: cold start, automatic playlist generation, and evaluation.
 + State-of-the-art techniques in playlist extension include collaborative filtering and Markov chain models
