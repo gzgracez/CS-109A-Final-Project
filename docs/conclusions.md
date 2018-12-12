@@ -17,14 +17,14 @@ The follow is a table that summarizes the training and test set accuracy for all
 |--------------------------------------------|:-------------------:|:------------------:|
 |        Baseline Logistic Regression        |       69.4%         |       67.1%        |
 |  Logistic Regression With Quadratic Terms  |       49.7%         |       48.4%        |
-|                     kNN                    |       63.1%         |       65.9%        |
 | Logistic Regression With L1 Regularization |       88.6%         |       88.7%        |
 | Logistic Regression With L2 Regularization |       69.2%         |       66.9%        |
+|                     kNN                    |       63.1%         |       65.9%        |
 |                     LDA                    |       88.1%         |       88.4%        |
 |                     QDA                    |       86.6%         |       86.7%        |
 |          Decision Tree Classifier          |       88.0%         |       89.0%        |
+|               Random Forest               |       92.9%         |       92.0%        |
 |    Decision Tree Classifier With Bagging   |       93.6%         |       91.8%        |
-|               Random Forrest               |       92.9%         |       92.0%        |
 |       Boosting Decision Tree Classifier    |       95.4%         |       93.0%        |
 |                 Neural Net                 |       TBD           |       TBD          |
 

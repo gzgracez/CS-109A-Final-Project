@@ -8,14 +8,22 @@ nav_order: 2
 
 Spotify is a popular music streaming platform that allows users to curate their own playlists. 
 Music recommender systems help users find songs based on what they might like. 
-We wanted to help Grace curate a Spotify playlist of her favorite songs using the classification techniques we had learned in class.
-Grace struggles to classify with words what makes a song fit into her vibe. "I'd jam to Madison Thompson's 'Lonely Together,' but definitely not to Avicii's."
+We wanted to help Grace curate a Spotify playlist of her favorite songs using the classification techniques we learned in class.
+Grace struggles to classify with words what makes a song fit into her vibe. 
+"I'd jam to Madison Thompson's 'Lonely Together,' but definitely not to Avicii's."
 When words fail, data science might help. 
-We decided to solve the problem of finding the best classification model for Grace's playlist, 
+We decided to use techniques from Cs109a to solve the problem of finding the best classification model for Grace's playlist, 
 and then use that model to find her more songs for her playlist.
 The Spotify API allows us to download playlists with feature data for each song in the playlist.
 We asked Grace to label a set of songs as included in her playlist and another set of songs as songs she would not want to listen to.
 We then constructed and analyzed classification models based on this data.
+
+</br>
+We had three goals:
++ to create the best performing model to classify songs as in or out of Grace's playlist
++ to use that model to suggest new songs for Grace's playlist
++ to produce a sleek interface using jekyll to display our analysis, so that others can replicate our method on their playlists
+
 
 ## Literature Review 
 [Current Challenges and Visions in Music Recommender Systems Research](https://arxiv.org/pdf/1710.03208.pdf)

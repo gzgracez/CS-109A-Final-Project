@@ -4,17 +4,22 @@ layout: default
 nav_order: 1
 ---
 
-## Overview
-For our final project, we used the Spotify API help Grace curate her playlist. We had three goals:
-+ to create the best performing model to classify songs as in or out of Grace's playlist
-+ to use that model to suggest new songs for Grace's playlist
-+ to produce a sleek interface using jekyll to display our analysis, so that others can replicate our method on their playlists
-
-## Playlists
-### Grace's Favorites Playlist
-<iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/6Jpt5r9KD8FEUDioBFV0r0" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-### Grace's Not-So-Favorites Playlist
-<iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+## Summary
+For our final project, we created a best-performing model to help classify songs for Grace's playlist. 
+We used the Spotify API to download features for songs Grace selected as playlist-worthy and playlist-unworthy.
+After getting a grasp on the data, we built classifiers to predict whether a song should be in or out of her playlist.
+Models we built include:
++ Baseline Logistic Regression
++ Logistic Regression With Quadratic Terms
++ Logistic Regression With L1 Regularization
++ Logistic Regression With L2 Regularization
++ k-Nearest Neighbors
++ Linear Discriminant Analysis
++ Decision Tree Classifier
++ Random Forest
++ Decision Tree Classifier with Bagging
++ Decision Tree Classifier with Boosting
++ Artificial Neural Network
 
 ## Website Navigation
 Our motivations for the project as well as our literature review can be found on the [background](background.html) page. 
