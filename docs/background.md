@@ -16,7 +16,8 @@ The Spotify API allows us to download playlists with feature data for each song 
 We asked Grace to label a set of songs as included in her playlist and another set of songs as songs she would not want to listen to.
 We then constructed and analyzed classification models based on this data.
 
-
+## Grace's Playlists
+<iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ## Literature Review 
 [Current Challenges and Visions in Music Recommender Systems Research](https://arxiv.org/pdf/1710.03208.pdf)
@@ -24,7 +25,6 @@ We then constructed and analyzed classification models based on this data.
 + State-of-the-art techniques in playlist extension include collaborative filtering and Markov chain models
 	- limitations include ordering of songs within playlists and incorporating situational characteristics that affect listeners
 + Future work includes incorporating personality, current emotional state, political situation, and cultural situation into music recommendations.
-BOLD<b>SUPPPP</b>HERE
 
 [An Analysis of Approaches Taken in the ACM RecSys Challenge 2018](https://arxiv.org/pdf/1810.01520.pdf)
 + In 2018, Spotify sponsored a challenge involving addressing the automatic music playlist continuation problem
