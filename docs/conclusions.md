@@ -6,7 +6,7 @@ nav_order: 4
 
 # Results
 
-The following table that summarizes the training and test set accuracy for all our models:
+The following table summarizes the training and test set accuracy for all our models:
 
 
 |                 Model Type                 | Training Accuracy   | Testing Accuracy   |
@@ -22,8 +22,9 @@ The following table that summarizes the training and test set accuracy for all o
 |               Random Forest                |       92.9%         |       92.0%        |
 |    Decision Tree Classifier With Bagging   |       93.6%         |       91.8%        |
 |       Boosting Decision Tree Classifier    |       95.4%         |       93.0%        |
-|                 Neural Net                 |       TBD           |       TBD          |
+|                 Neural Net                 |       50.4%         |       40.4%        |
 
+Our lowest performing models include
 From these results we can see that there are two tiers of performance. 
 The lowest performing models include the baseline logistic regression, regression with quadratic terms, kNN, and logistic regression with L2 regularization. 
 With the exception of these four models all the other ones perfrom somewhere betwen 88% to 93% on their test set accuracy measures. 
