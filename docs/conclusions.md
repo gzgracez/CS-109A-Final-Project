@@ -23,7 +23,7 @@ The follow is a table that summarizes the training and test set accuracy for all
 |                     LDA                    |       88.1%         |       88.4%        |
 |                     QDA                    |       86.6%         |       86.7%        |
 |          Decision Tree Classifier          |       88.0%         |       89.0%        |
-|               Random Forest               |       92.9%         |       92.0%        |
+|               Random Forest                |       92.9%         |       92.0%        |
 |    Decision Tree Classifier With Bagging   |       93.6%         |       91.8%        |
 |       Boosting Decision Tree Classifier    |       95.4%         |       93.0%        |
 |                 Neural Net                 |       TBD           |       TBD          |
