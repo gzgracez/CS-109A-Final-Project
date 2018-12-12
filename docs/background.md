@@ -14,9 +14,6 @@ Grace struggles to classify with words what makes a song fit into her vibe.
 When words fail, data science might help. 
 We decided to use techniques from Cs109a to solve the problem of finding the best classification model for Grace's playlist, 
 and then use that model to find her more songs for her playlist.
-The Spotify API allows us to download playlists with feature data for each song in the playlist.
-We asked Grace to label a set of songs as included in her playlist and another set of songs as songs she would not want to listen to.
-We then constructed and analyzed classification models based on this data.
 
 We had three goals:
 1. to create the best performing model to classify songs as in or out of Grace's playlist
@@ -31,7 +28,10 @@ We had three goals:
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 # Approach
-We split our data into a training and test set. We then built and fit a variety of classifiers for Grace's playlist on the training set. Models we built include:
+First, we asked Grace to label a set of songs as included in her playlist and another set of songs as songs she would not want to listen to.
+We used Spotify API to download her playlists with feature data for each song in the playlist.
+We then randomly split this data into a training and test set. 
+Next, we built and fit a variety of classifiers for Grace's playlist on the training set. Models we built include:
 - Logistic Regression
 - Logistic Regression With Quadratic Terms
 - Logistic Regression With L1 Regularization
@@ -44,10 +44,9 @@ We split our data into a training and test set. We then built and fit a variety 
 - Decision Tree Classifier with Bagging
 - Decision Tree Classifier with Boosting
 - Artificial Neural Network
-We then compared the accuracy of each model on our training and and test set. 
-We determined the classifier with the highest performance on the test set. 
-We finally ran this model on a fresh set of songs and asked Grace if she liked her new playlist!
-
+For each model, we evaluated its accuracy on both our training and and test set. 
+Based on accuracy scores, we determined the classifier with the highest performance on the test set. 
+Finally, we ran our best-performing model on a fresh set of songs and asked Grace if she liked her new playlist!
 
 # Literature Review 
 [Current Challenges and Visions in Music Recommender Systems Research](https://arxiv.org/pdf/1710.03208.pdf)

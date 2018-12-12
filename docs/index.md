@@ -3,9 +3,8 @@ title: Home
 layout: default
 nav_order: 1
 ---
-## Welcome to Spotify You
 
-# Summary
+# Overview
 For our final project, we created a best-performing model to help classify songs for Grace's playlist. 
 We used the Spotify API to download features for songs Grace selected as playlist-worthy and playlist-unworthy.
 After getting a grasp on the data, we built classifiers to predict whether a song should be in or out of her playlist.

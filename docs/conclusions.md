@@ -4,13 +4,9 @@ layout: default
 nav_order: 4
 ---
 
-# Approach
-
-Our analysis incorporated a multitude of models ranging from logistic regressions to random forrests, each with their own underlying algorithms. All models were used to predict the classification of songs as either in the given Spotify playlist of not. Additionally, we experimented with model enhancing practices such as bagging and boosting to try and increase a given model's accuracy. 
-
 # Results
 
-The follow is a table that summarizes the training and test set accuracy for all the models we ran:
+The following table that summarizes the training and test set accuracy for all our models:
 
 
 |                 Model Type                 | Training Accuracy   | Testing Accuracy   |
@@ -28,12 +24,17 @@ The follow is a table that summarizes the training and test set accuracy for all
 |       Boosting Decision Tree Classifier    |       95.4%         |       93.0%        |
 |                 Neural Net                 |       TBD           |       TBD          |
 
-From these results we can see that there are two tiers of performance. The lowest performing models include the: baseline logistic regression, regression with quadratic terms, kNN, and logistic regression with L2 regularization. With the exception of these four models all the other ones perfrom somewhere betwen 88% to 93% on their test set accuracy measures. The best performing model is constructed by boosting a decision tree classifier. The accuracy attained by this model is 93.0%.
+From these results we can see that there are two tiers of performance. 
+The lowest performing models include the baseline logistic regression, regression with quadratic terms, kNN, and logistic regression with L2 regularization. 
+With the exception of these four models all the other ones perfrom somewhere betwen 88% to 93% on their test set accuracy measures. 
+The best performing model is constructed by boosting a decision tree classifier. 
+The accuracy attained by this model is 93.0%.
 
 ## Future Work
 Given the brief timeframe for this project, many areas to consider remain.
 # Data Inclusion
 We generated a dataset of songs for Grace to classify by downloading her "favorites" and "unfavorites" playlists on Spotify. 
 In the future, increasing the size of the dataset will be useful.
+# Collaborative Filtering
 # Other Playlists
 In the future, we can repeat this analysis on the playlists of others to find the best performing model.
