@@ -1,3 +1,9 @@
+---
+title: Million Playlist Dataset
+layout: default
+nav_order: 6
+---
+
 # The Million Playlist Dataset
 The Million Playlist Dataset contains 1,000,000 playlists created by
 users on the Spotify platform.  It can be used by researchers interested

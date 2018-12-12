@@ -1,3 +1,9 @@
+---
+title: Data Collection
+layout: default
+nav_order: 3
+---
+
 # Data Collection
 
 We collected our data by using the Spotify API to create a json file of tracks and their features, additionally labelling each track with a new feature we introduced, `in_playlist`, which equals 1 if Person X would include the track in her playlist and 0 if Person X would not include the track in her playlist. 
