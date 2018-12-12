@@ -1,6 +1,7 @@
 MillionSongSubset/
 export-vars.sh
 run-spotify.sh
+run-spotify-get-info.sh
 .cache-gzgracez2
 
 # Byte-compiled / optimized / DLL files
