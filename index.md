@@ -1,5 +1,6 @@
 ---
 title: SpotifYou
+layout: default
 ---
 
 You've listened to your playlist. And you've listened to it again. How can _you_ create a new playlist that is tailored to _your_ tastes? Let's find out.

@@ -74,6 +74,12 @@
           </div>
           
           
+            <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+              
+                <li class="d-inline-block my-0"><a href="//github.com/gzgracez/CS-109A-Final-Project">SpotifYou on GitHub</a></li>
+              
+            </ul>
+          
         </div>
       </div>
       <div class="main-content">
@@ -596,7 +602,7 @@ header {
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="output_17_0.png" alt="png" /></p>
+<p><img src="/final_notebook/output_17_0.png" alt="png" /></p>
 
 <p>Looking at the density plots above, we note some features that show clear differences in distribution between the playlist and non-playlist. 
 While non-playlist songs contain a roughly uniform distribution of energy values, playlist songs spike at an energy level between 0.2-0.4.
@@ -621,7 +627,7 @@ The rest of the features are roughly similar in distribution between playlist an
   FAC1 = 2*(np.pi*bw/RANGE)**2
 </code></pre></div></div>
 
-<p><img src="output_19_1.png" alt="png" /></p>
+<p><img src="/final_notebook/output_19_1.png" alt="png" /></p>
 
 <p>The pairplot above demonstrates a few interesting things. First, we notice positive correlations between loudness and energy, loudness and danceability, and danceablility and loudness. All three correlations are weak to moderate. We also notice a negative correlation between acousticness and energy.</p>
 
@@ -792,7 +798,7 @@ QDA Accuracy, Testing Set : 0.8735177865612648%
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="output_36_0.png" alt="png" /></p>
+<p><img src="/final_notebook/output_36_0.png" alt="png" /></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># cross validation performance</span>
 <span class="n">train_score</span> <span class="o">=</span> <span class="n">means</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
@@ -959,22 +965,22 @@ Random Forest Accuracy, Testing Set : 0.8962450592885376%
     <span class="k">print</span><span class="p">(</span><span class="n">boostingClassifier</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p><img src="output_54_0.png" alt="png" /></p>
+<p><img src="/final_notebook/output_54_0.png" alt="png" /></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maximum test accuracy for depth of 1 is 0.9120553359683794 at 390 iterations
 </code></pre></div></div>
 
-<p><img src="output_54_2.png" alt="png" /></p>
+<p><img src="/final_notebook/output_54_2.png" alt="png" /></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maximum test accuracy for depth of 2 is 0.9347826086956522 at 381 iterations
 </code></pre></div></div>
 
-<p><img src="output_54_4.png" alt="png" /></p>
+<p><img src="/final_notebook/output_54_4.png" alt="png" /></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maximum test accuracy for depth of 3 is 0.9288537549407114 at 182 iterations
 </code></pre></div></div>
 
-<p><img src="output_54_6.png" alt="png" /></p>
+<p><img src="/final_notebook/output_54_6.png" alt="png" /></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maximum test accuracy for depth of 4 is 0.9209486166007905 at 229 iterations
 </code></pre></div></div>
@@ -1008,7 +1014,7 @@ Random Forest Accuracy, Testing Set : 0.8962450592885376%
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="output_57_0.png" alt="png" /></p>
+<p><img src="/final_notebook/output_57_0.png" alt="png" /></p>
 
 <p>Our kNN regressor performs quite poorly.</p>
 

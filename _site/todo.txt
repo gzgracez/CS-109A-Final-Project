@@ -1,6 +1,7 @@
 - Stepwise Variable Selection
 - Ridge Variable Selection
 - Lasso Variable Selection
+
 - k-NN
 
 - Classification Trees
