@@ -25,13 +25,15 @@ We then constructed and analyzed classification models based on this data.
 	- limitations include ordering of songs within playlists and incorporating situational characteristics that affect listeners
 + Future work includes incorporating personality, current emotional state, political situation, and cultural situation into music recommendations.
 
+[An Analysis of Approaches Taken in the ACM RecSys Challenge 2018 for Automatic Music Playlist Continuation](https://arxiv.org/pdf/1710.03208.pdf)
++ In 2018, Spotify sponsored a challenge involving addressing the playlist continuation problem
++ Most accurate classifiers involved:
+	- Larger training sets produced better-performing models
+		- If training sets were subset, using a random subset of the playlist rather than the sequentially first songs in a playlist was most accurate in training a model
+	- Excluding "title" as meta-data for the playlist produced better models across the board
+	- Solutions using the descriptors from the Spotify API were more efficient
 
-[Current Challenges and Visions in Music Recommender Systems Research](https://arxiv.org/pdf/1710.03208.pdf)
-+ Biggest current issues in MRS: cold start, automatic playlist generation, and evaluation.
-+ State-of-the-art techniques in playlist extension include collaborative filtering and Markov chain models
-	- limitations include ordering of songs within playlists and incorporating situational characteristics that affect listeners
-+ Future work includes incorporating personality, current emotional state, political situation, and cultural situation into music recommendations.
-
+https://arxiv.org/pdf/1810.01520.pdf
 >here is a quote
 
 

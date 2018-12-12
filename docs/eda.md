@@ -6,6 +6,7 @@ layout: default
 ## Motivation
 
 Spotify is a popular music streaming platform that allows users to curate their own playlists. 
+Currently, there are over 2 billion playlists on Spotify. 
 Music recommender systems help users find songs to play personalized based on what they might like. 
 We wanted to help Grace curate a Spotify playlist of songs she likes using the classification techniques we had learned in class.
 The Spotify API allows us to download playlists with feature data for each song in the playlist.
