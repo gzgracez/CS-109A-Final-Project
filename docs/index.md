@@ -3,6 +3,7 @@ title: Home
 layout: default
 nav_order: 1
 ---
+## Welcome to Spotify You
 
 # Summary
 For our final project, we created a best-performing model to help classify songs for Grace's playlist. 
