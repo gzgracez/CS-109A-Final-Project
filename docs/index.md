@@ -1,9 +1,8 @@
 ---
-title: SpotifYou
+title: Home
 layout: default
 ---
 
-HI GRACE
 You've listened to your playlist. And you've listened to it again. How can _you_ create a new playlist that is tailored to _your_ tastes? Let's find out.
 
 For our CS 109A final project, we set off to construct models that will allow us to best categorize new songs as being either songs that you would like to have in your playlist or songs that you would likely not want to include in your playlist. Given your existing favorite playlist, we will attempt to construct a new playlist by using our models to predict whether a new song belongs in your new playlist and adding them accordingly.
