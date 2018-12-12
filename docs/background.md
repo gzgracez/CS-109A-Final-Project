@@ -25,7 +25,7 @@ We then constructed and analyzed classification models based on this data.
 	- limitations include ordering of songs within playlists and incorporating situational characteristics that affect listeners
 + Future work includes incorporating personality, current emotional state, political situation, and cultural situation into music recommendations.
 
-[An Analysis of Approaches Taken in the ACM RecSys Challenge 2018 for Automatic Music Playlist Continuation](https://arxiv.org/pdf/1710.03208.pdf)
+[An Analysis of Approaches Taken in the ACM RecSys Challenge 2018 for Automatic Music Playlist Continuation](https://arxiv.org/pdf/1810.01520.pdf)
 + In 2018, Spotify sponsored a challenge involving addressing the playlist continuation problem
 + Most accurate classifiers involved:
 	- Larger training sets produced better-performing models
@@ -33,7 +33,15 @@ We then constructed and analyzed classification models based on this data.
 	- Excluding "title" as meta-data for the playlist produced better models across the board
 	- Solutions using the descriptors from the Spotify API were more efficient
 
-https://arxiv.org/pdf/1810.01520.pdf
+[TrailMix: An Ensemble Recommender System for Playlist Curation and Continuation](people.tamu.edu/~zhaoxing623/publications/XZ_TrailMix.pdf)
++ RecSys feature TrailMix compared 3 recommender models:
+	- song clustering purely based on title
+	- decorated neural collaborative filtering
+	- decision tree
++ The title model performed very poorly compared to the other two models
+	- The authors acknowledge that using analysis beyond the literal words, ex. incorporating NLP methods, could help
++ An ensemble of all three models performed best
+
 >here is a quote
 
 
