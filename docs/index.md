@@ -5,7 +5,7 @@ layout: default
 
 ## Summary
 For our final project, we used the Spotify API to curate the playlist of our friend Grace. We had three goals:
-+ to create the best performing model to classify songs as in Grace's playlist or out of it
++ to create the best performing model to classify songs as in or out of Grace's playlist
 + to use that model to suggest new songs for Grace's playlist
 + to produce a user-friendly interface to display our analysis
 
