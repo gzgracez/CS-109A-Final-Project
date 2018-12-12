@@ -31,4 +31,3 @@ The follow is a table that summarizes the training and test set accuracy for all
 From these results we can see that there are two tiers of performance. The lowest performing models include the: baseline logistic regression, regression with quadratic terms, kNN, and logistic regression with L2 regularization. With the exception of these four models all the other ones perfrom somewhere betwen 88% to 93% on their test set accuracy measures. The best performing model is constructed by boosting a decision tree classifier. The accuracy attained by this model is 93.0%.
 
 ## Future Work
-
