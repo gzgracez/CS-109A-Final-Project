@@ -1,0 +1,15 @@
+theme: jekyll-theme-primer
+title: SpotifYou
+description: Generate YOUR Spotify playlist
+baseurl:
+markdown: kramdown
+kramdown:
+    math_engine: mathjax
+    input: GFM
+    syntax_highlighter: rouge
+remote_theme: pmarsceill/just-the-docs
+theme: just-the-docs
+search_enabled: true
+aux_links:
+"SpotifYou on GitHub":
+    - "//github.com/gzgracez/CS-109A-Final-Project"

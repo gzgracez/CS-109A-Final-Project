@@ -1,0 +1,16 @@
+- Stepwise Variable Selection
+- Ridge Variable Selection
+- Lasso Variable Selection
+- k-NN
+
+- Classification Trees
+	- Bagging
+	- Boosting
+	- Random Forest
+	- Stacking
+
+- Interaction Term
+- Higher-degree Polynomial 
+- Neural Networks
+
+- LDA/QDA
