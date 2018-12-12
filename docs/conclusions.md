@@ -22,9 +22,10 @@ The following table summarizes the training and test set accuracy for all our mo
 |               Random Forest                |       92.9%         |       92.0%        |
 |    Decision Tree Classifier With Bagging   |       93.6%         |       91.8%        |
 |       Boosting Decision Tree Classifier    |       95.4%         |       93.0%        |
-|                 Neural Net                 |       50.4%         |       40.4%        |
+|                 Neural Network             |       50.4%         |       40.4%        |
 
-Our lowest performing models include
+Our lowest performing models include the neural network, the logistic regression with quadratic terms, and our kNN model, all of which perform worse than the baseline.
+We are not sure why the neural network.  
 From these results we can see that there are two tiers of performance. 
 The lowest performing models include the baseline logistic regression, regression with quadratic terms, kNN, and logistic regression with L2 regularization. 
 With the exception of these four models all the other ones perfrom somewhere betwen 88% to 93% on their test set accuracy measures. 
@@ -32,10 +33,10 @@ The best performing model is constructed by boosting a decision tree classifier.
 The accuracy attained by this model is 93.0%.
 
 ## Future Work
-Given the brief timeframe for this project, many areas to consider remain.
 # Data Inclusion
 We generated a dataset of songs for Grace to classify by downloading her "favorites" and "unfavorites" playlists on Spotify. 
 In the future, increasing the size of the dataset will be useful.
 # Collaborative Filtering
+# Improve Neural Network
 # Other Playlists
 In the future, we can repeat this analysis on the playlists of others to find the best performing model.
