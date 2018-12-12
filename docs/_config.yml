@@ -1,5 +1,5 @@
 theme: jekyll-theme-primer
-title: Spotify You
+title: Spotify You <img src="img/spotify_icon.png" alt="spot" />
 description: Generate YOUR Spotify playlist
 baseurl:
 markdown: kramdown
