@@ -17,7 +17,7 @@ We asked Grace to label a set of songs as included in her playlist and another s
 We then constructed and analyzed classification models based on this data.
 
 ## Grace's Playlists
-<iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="https://open.spotify.com/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ## Literature Review 
 [Current Challenges and Visions in Music Recommender Systems Research](https://arxiv.org/pdf/1710.03208.pdf)
