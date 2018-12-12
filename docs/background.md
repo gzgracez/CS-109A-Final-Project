@@ -38,7 +38,7 @@ We then constructed and analyzed classification models based on this data.
 	- Solutions using the descriptors from the Spotify API were more efficient
 
 [TrailMix: An Ensemble Recommender System for Playlist Curation and Continuation](people.tamu.edu/~zhaoxing623/publications/XZ_TrailMix.pdf)
-+ RecSys feature TrailMix compared 3 recommender models:
++ Successful RecSys project TrailMix compared 3 recommender models:
 	- song clustering purely based on title
 	- decorated neural collaborative filtering
 	- decision tree
