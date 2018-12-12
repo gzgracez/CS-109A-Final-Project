@@ -1,3 +1,8 @@
+---
+title: CS109-Final Notebook
+layout: default
+nav_order: 5
+---
 
 # <img style="float: left; padding-right: 10px; width: 45px" src="https://raw.githubusercontent.com/Harvard-IACS/2018-CS109A/master/content/styles/iacs.png"> CS109A Introduction to Data Science:  Spotify Final Project
 
