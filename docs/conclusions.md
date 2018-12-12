@@ -5,9 +5,8 @@ nav_order: 4
 ---
 
 # Results
-
+Our best model performs with an accuracy of 95.4% in the training set, and 93.0% in the test set.
 The following table summarizes the accuracies for all our models, ordered by accuracy in the test set:
-
 
 |                 Model Type                 | Train Accuracy      | Test Accuracy      |
 |--------------------------------------------|:-------------------:|:------------------:|
@@ -22,15 +21,10 @@ The following table summarizes the accuracies for all our models, ordered by acc
 |          Decision Tree Classifier          |       88.0%         |       89.0%        |
 |    Decision Tree Classifier With Bagging   |       93.6%         |       91.8%        |
 |               Random Forest                |       92.9%         |       92.0%        |
-|       Boosting Decision Tree Classifier    |       95.4%         |       93.0%        |
+|       Boosted Decision Tree Classifier     |       95.4%         |       93.0%        |
 
-Our lowest performing models include the neural network, the logistic regression with quadratic terms, and our kNN model, all of which perform worse than the baseline.
-We are not sure why the neural network.
-From these results we can see that there are two tiers of performance. 
-The lowest performing models include the baseline logistic regression, regression with quadratic terms, kNN, and logistic regression with L2 regularization. 
-With the exception of these four models all the other ones perfrom somewhere betwen 88% to 93% on their test set accuracy measures. 
-The best performing model is constructed by boosting a decision tree classifier. 
-The accuracy attained by this model is 93.0%.
+Our lowest performing models include the logistic regression with quadratic terms, the neural network, and the kNN model, all of which perform worse than the baseline.
+Our best performing models were all ensemble methods with the decision tree, with the boosted decision tree classifier, the random forest model, and the decision tree classifier with bagging performing best.
 
 ## Future Work
 # Data Inclusion
