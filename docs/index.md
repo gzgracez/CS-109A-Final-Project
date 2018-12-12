@@ -3,7 +3,7 @@ title: Home
 layout: default
 nav_order: 1
 ---
-
+<p><img src="img/spotify_icon.png" alt="spot"/>Hi</p>
 # Overview
 For our final project, we created a best-performing model to help classify songs for Grace's playlist. 
 We used the Spotify API to download features for songs Grace selected as playlist-worthy and playlist-unworthy.
