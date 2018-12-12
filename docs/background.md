@@ -19,9 +19,9 @@ We asked Grace to label a set of songs as included in her playlist and another s
 We then constructed and analyzed classification models based on this data.
 
 We had three goals:
-+ to create the best performing model to classify songs as in or out of Grace's playlist
-+ to use that model to suggest new songs for Grace's playlist
-+ to produce a sleek interface using jekyll to display our analysis, so that others can replicate our method on their playlists
+1. to create the best performing model to classify songs as in or out of Grace's playlist
+2. to use that model to suggest new songs for Grace's playlist
+3. to produce a sleek interface using jekyll to display our analysis, so that others can replicate our method on their playlists
 
 
 ## Playlists
@@ -54,3 +54,11 @@ We had three goals:
 + The title model performed very poorly compared to the other two models
 	- The authors acknowledge that using analysis beyond the literal words, ex. incorporating NLP methods, could help
 + An ensemble of all three models performed best
+
+[Ways Explanations Impact End Users’ Mental Models](http://openaccess.city.ac.uk/6344/3/VLHCC2013.pdf)
++ This paper explored the explanations of music song recommenders to users
++ Part of enabling users to debug their models is explaining these agents to users well enough for them to build useful mental models
++ A kNN and bagged decision tree ensemble model was used to recommend songs
++ Completeness of explanations were more important than soundness in understanding models (ie--explaining everything as opposed to explaining only a part but explaining that part fully correctly)
++ They found that in general, comprehensive explanations were more useful than simple ones
+
