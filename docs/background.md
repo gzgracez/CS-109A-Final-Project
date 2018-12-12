@@ -30,6 +30,24 @@ We had three goals:
 ## Grace's Not-So-Favorites Playlist
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
+# Approach
+We split our data into a training and test set. We then built and fit a variety of classifiers for Grace's playlist on the training set. Models we built include:
+- Logistic Regression
+- Logistic Regression With Quadratic Terms
+- Logistic Regression With L1 Regularization
+- Logistic Regression With L2 Regularization
+- k-Nearest Neighbors
+- Linear Discriminant Analysis
+- Quadratic Discriminant Analysis
+- Decision Tree Classifier
+- Random Forest
+- Decision Tree Classifier with Bagging
+- Decision Tree Classifier with Boosting
+- Artificial Neural Network
+We then compared the accuracy of each model on our training and and test set. 
+We determined the classifier with the highest performance on the test set. 
+We finally ran this model on a fresh set of songs and asked Grace if she liked her new playlist!
+
 
 # Literature Review 
 [Current Challenges and Visions in Music Recommender Systems Research](https://arxiv.org/pdf/1710.03208.pdf)
