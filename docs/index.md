@@ -10,8 +10,11 @@ For our final project, we used the Spotify API help Grace curate her playlist. W
 + to produce a user-friendly interface using jekyll to display our analysis, so that others can replicate our method on their playlists
 
 ## Website Navigation
-
-
+Motivations, overall summary of project, literature review/related work- background
+Data description, eda, modelling approach: evaluation metric of accuracy score - data
+notebook
+results, conclusions - analysis
+summary of what found, future work - moving forward
 ## About Us
 We are Tejal Patwardhan, Akshitha Ramachandran, and Grace Zhang, group 49 for Cs109a. 
 Special thanks to Pavlos Protopapas, Kevin Rader, and Rashmi Banthia for their assistance.

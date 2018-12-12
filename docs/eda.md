@@ -3,10 +3,16 @@ title: Data
 layout: default
 ---
 
-## Spotify
+## Motivation
 
-Background on spotify
-
+Spotify is a popular music streaming platform that allows users to curate their own playlists. 
+Music recommender systems help users find songs to play personalized based on what they might like. 
+We wanted to help Grace curate a Spotify playlist of songs she likes using the classification techniques we had learned in class.
+The Spotify API allows us to download playlists with feature data for each song in the playlist.
+We asked Grace to classify a set of songs into her playlist and another set of songs as songs she would not want to listen to.
+Grace struggles to classify with words what makes a song fit into her vibe. 
+We decided to use our techniques to solve the problem of finding the best classifying model for Grace's playlist, 
+and then use that model to find her more songs for her playlist.
 
 ## Literature review 
 
