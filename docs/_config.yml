@@ -1,5 +1,5 @@
 theme: jekyll-theme-primer
-title: SpotifYou
+title: Spotify You
 description: Generate YOUR Spotify playlist
 baseurl:
 markdown: kramdown
@@ -11,5 +11,5 @@ remote_theme: pmarsceill/just-the-docs
 search_enabled: true
 exclude: ["*.json", "*.csv", "*.ipynb", "*.pdf", "papers/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
 aux_links:
-  "SpotifYou on GitHub":
+  "Spotify You on GitHub":
       - "//github.com/gzgracez/CS-109A-Final-Project"
