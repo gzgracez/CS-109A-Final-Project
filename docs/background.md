@@ -16,9 +16,11 @@ The Spotify API allows us to download playlists with feature data for each song 
 We asked Grace to label a set of songs as included in her playlist and another set of songs as songs she would not want to listen to.
 We then constructed and analyzed classification models based on this data.
 
-## Grace's Playlists
-<iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+## Playlists
+### Grace's Favorites Playlist
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/6Jpt5r9KD8FEUDioBFV0r0" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+### Grace's Not-So-Favorites Playlist
+<iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ## Literature Review 
 [Current Challenges and Visions in Music Recommender Systems Research](https://arxiv.org/pdf/1710.03208.pdf)
