@@ -708,46 +708,6 @@ Even after changing hyperparameters, our neural network does not perform very we
 
 Based upon the presented analysis, we conclude that our boosted decision tree classifier, at a depth of 2 with 751 iterations, is the best model. It achieves the highest accuracy in the test set, of 93.0%.
 
-# Moving Forward
-
-We can now try to generate a playlist customized to Grace's taste using our chosen model. We will present the model with a list of songs that both Grace and the model have not seen before. We'll then have the model assess whether these songs should be included in the playlist and then verify that with Grace's opinion.
 
 
-```python
-# load in dataset
-full_songs_df = pd.read_csv("data/spotify-test.csv")
 
-# drop unnecessary columns
-songs_df = full_songs_df.drop(columns=['type', 'id', 'uri', 'track_href', 'analysis_url', 'name', 'artist', 'Unnamed: 0'])
-```
-
-
-```python
-# recreating the best model
-best_abc = AdaBoostClassifier(DecisionTreeClassifier(max_depth=2), n_estimators=800, learning_rate = 0.05)
-best_abc.fit(x_train, y_train)
-predictions = best_abc.predict(songs_df)
-```
-
-
-```python
-print("Songs Selected for Grace's Playlist")
-for i in range(len(predictions)):
-    if predictions[i] == 1:
-        print(full_songs_df.loc[i]['name'])
-```
-
-    Songs Selected for Grace's Playlist
-    Never Seen Anything "Quite Like You" - Acoustic
-    Crazy World - Live from Dublin
-    Whatever You Do
-    Come on Love
-    1,000 Years
-    Machine
-    After Dark
-    Sudden Love (Acoustic)
-    Georgia
-    I Don't Know About You
-
-
-This randomly selected dataset had 26 songs. These songs had never been classified by Grace before and our best model (the boosted decision tree classifier with a depth of 2) was used to predict whether songs would be included in her playlist. We then played all the songs in the dataset to Grace to see whether she would include them in her playlist. The model performed accurately, except for one song which she said she would not have added to her playlist ("I Don't Know About You"). One reason for this mishap could be that our model isn't 100% accurate, so this song could be by chance one of the ones it messes up; 1 missed song out of 26 is reasonable for a model with 93% accuracy. Another reason could be that Grace's actual taste is different from how she made the playlist (perhaps she is in a different emotive or environmental state that temporally affects her preferences, or perhaps her underlying preferences have changed). Despite this error, overall, Grace was pleased that we could use data science to automate her playlist selection procees!
