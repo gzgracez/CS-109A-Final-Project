@@ -69,20 +69,20 @@ header {
 
 ## Playlists
 Grace created two playlists. The first includes random songs that Grace would include in her playlist (a "favorites" playlist), and the other playlist includes random songs that Grace would not include in her playlist (the "not-so-favorites" playlist). 
-These two playlists are linked below
-## Grace's Favorites Playlist
+These two playlists are linked below.
+### Grace's Favorites Playlist
 {: .no_toc }
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/6Jpt5r9KD8FEUDioBFV0r0" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-## Grace's Not-So-Favorites Playlist
+### Grace's Not-So-Favorites Playlist
 {: .no_toc }
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ## Spotify API 
-We extracted our data from these by using the Spotify API to create a json file of tracks and their features. 
-We used the Spotify API `user_playlist_tracks` endpoint to collect track features, including `track_id`s, of the tracks in each of these playlists. 
-We then used the `audio_features` endpoint of the Spotify API to get additional features like `danceability` for each of our tracks. 
-We added the `in_playlist` feature to each of our tracks, labeling them with a 1 if they were from the favorites playlist and a 0 for the not-so-favorites playlist.
-Finally, we wrote our final object to `spotify.json`.
+We extracted our data from these playlists by using the Spotify API to create a .csv file of songs and their features. 
+We used the Spotify API's `user_playlist_tracks` endpoint to collect track features, including `track_id`s, of the tracks in each of these playlists. 
+We then used the `audio_features` endpoint to get additional features like `danceability` for each of our tracks. 
+Finally, we added the `in_playlist` feature to each of our tracks, labeling them with a 1 if they were from the favorites playlist and a 0 indicating the not-so-favorites playlist.
+All of this data was written to a `spotify.csv` file.
 
 
 <hr style="height:2pt">
@@ -95,7 +95,8 @@ Our data includes the following features:
 - `loudness`: The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values range between -60 and 0 db. 
 - `mode`: Mode represents the modality (major or minor) of a track, the type of scale from which its melodic content is derived. Mode is binary; major is represented by 1 and minor is 0.
 - `speechiness`: Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most likely represent music and other non-speech-like tracks.
-- `acousticness`: A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic. instrumentalness: Predicts whether a track contains no vocals. “Ooh” and “aah” sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly “vocal”. The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content. Values above 0.5 are intended to represent instrumental tracks, but confidence is higher as the value approaches 1.0.
+- `acousticness`: A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic. 
+- `instrumentalness`: Predicts whether a track contains no vocals. “Ooh” and “aah” sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly “vocal”. The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content. Values above 0.5 are intended to represent instrumental tracks, but confidence is higher as the value approaches 1.0.
 - `liveness`: Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live. 
 - `valence`: A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).
 - `tempo`: The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration. 
@@ -107,7 +108,7 @@ Our data includes the following features:
 The following features were recorded to help with visualization later, but not used as predictors in our analysis, as they are not characteristics of the music itself.
 - `name`: Song title
 - `artist`: First artist of song
-- `type`: The object type: “audio_features”
+- `type`: The object type, always deemed 'audio_features.'
 - `id`: The Spotify ID for the track.
 - `uri`: The Spotify URI for the track.
 - `track_href`: A link to the Web API endpoint providing full details of the track.
@@ -301,7 +302,7 @@ The rest of the features are roughly similar in distribution between playlist an
 ![png](output_20_1.png)
 
 
-The pairplot above demonstrates a few interesting things. First, we notice positive correlations between loudness and energy, loudness and danceability, and danceablility and loudness. All three correlations are weak to moderate. We also notice a negative correlation between acousticness and energy. 
+The pairplot above demonstrates a few interesting things. First, we notice weakly positive correlations between loudness and energy, loudness and danceability, and danceablility and loudness. We also notice a negative correlation between acousticness and energy. The pairplot above demonstrates a few interesting things. First, we notice weakly positive correlations between loudness and energy, loudness and danceability, and danceablility and loudness. We also notice a negative correlation between acousticness and energy. These correlations will be useful to keep in mind if we conduct variable selection or regularization at a later point. Also, none of these pairwise plots show clear separability between the two playlists.
 
 
 

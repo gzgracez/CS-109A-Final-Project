@@ -96,7 +96,7 @@ print('[Logistic Regression] Classification accuracy for test set: {}'.format(lo
     [Logistic Regression] Classification accuracy for test set: 0.6709486166007905
 
 
-Our baseline logistic model is able to achieve an accuracy of roughly $69.4\%$ in the training set, and $67.1\%$ in the test set.
+Our baseline logistic model is able to achieve an accuracy of roughly 69.4% in the training set, and 67.1% in the test set.
 
 # Add Quadratic Terms
 
@@ -134,7 +134,7 @@ print('[Logistic Regression With Quadratic Terms] Classification accuracy for te
     [Logistic Regression With Quadratic Terms] Classification accuracy for test set: 0.4841897233201581
 
 
-When trying to add quadratic terms, we see that the model performs worse. The test and training accuracies are both low at roughly $48.4\%$ and $49.7\%$.
+When trying to add quadratic terms, we see that the model performs worse. The test and training accuracies are both low at roughly 48.4% and 49.7%.
 
 # Regularization
 

@@ -51,7 +51,7 @@ Next, we built and fit a variety of classifiers for Grace's playlist on the trai
 
 For each model, we evaluated its accuracy on both our training and and test set. 
 Based on accuracy scores, we determined the classifier with the highest performance on the test set. 
-Finally, we ran our best-performing model on a fresh set of songs and asked Grace if she liked her new playlist!
+Finally, we ran our best-performing model on a fresh set of songs and asked Grace if she liked her new playlist.
 
 # Literature Review 
 [Current Challenges and Visions in Music Recommender Systems Research](https://arxiv.org/pdf/1710.03208.pdf)
