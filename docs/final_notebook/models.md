@@ -4,6 +4,7 @@ layout: default
 nav_order: 4
 ---
 
+<!-- 
 <style>
 blockquote { background: #AEDE94; }
 h1 { 
@@ -60,6 +61,7 @@ header {
     color: black;
 }
 </style>
+ -->
 
 # Baseline Logistic Classifier
 
