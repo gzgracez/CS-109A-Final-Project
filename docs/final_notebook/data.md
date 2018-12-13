@@ -4,26 +4,6 @@ layout: default
 nav_order: 3
 ---
 
-
-**Harvard University**<br/>
-**Fall 2018**<br/>
-**Instructors**: Pavlos Protopapas, Kevin Rader<br/>
-**Group Number**: 49<br/>
-**Group Members**: Tejal Patwardhan, Akshitha Ramachandran, Grace Zhang
-<hr style="height:2pt">
-
-
-```python
-#RUN THIS CELL 
-import requests
-from IPython.core.display import HTML
-styles = requests.get("https://raw.githubusercontent.com/Harvard-IACS/2018-CS109A/master/content/styles/cs109.css").text
-HTML(styles)
-```
-
-
-
-
 <style>
 blockquote { background: #AEDE94; }
 h1 { 
@@ -134,202 +114,9 @@ The following features were recorded to help with visualization later, but not u
 # Exploratory Data Analysis
 
 
-```python
-random.seed(1)
-```
-
-
-```python
-# load in dataset
-spotify_df = pd.read_csv("data/spotify-more2.csv")
-
-# drop unnecessary columns
-spotify_df = spotify_df.drop(columns=['type', 'id', 'uri', 'track_href', 'analysis_url', 'name', 'artist', 'Unnamed: 0'])
-```
-
-
-```python
-# display head of data
-display(spotify_df.head())
-```
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>acousticness</th>
-      <th>danceability</th>
-      <th>duration_ms</th>
-      <th>energy</th>
-      <th>in_playlist</th>
-      <th>instrumentalness</th>
-      <th>key</th>
-      <th>liveness</th>
-      <th>loudness</th>
-      <th>mode</th>
-      <th>popularity</th>
-      <th>speechiness</th>
-      <th>tempo</th>
-      <th>time_signature</th>
-      <th>valence</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.929</td>
-      <td>0.516</td>
-      <td>138760</td>
-      <td>0.0663</td>
-      <td>0</td>
-      <td>0.000972</td>
-      <td>7</td>
-      <td>0.1120</td>
-      <td>-19.221</td>
-      <td>0</td>
-      <td>11</td>
-      <td>0.0334</td>
-      <td>109.879</td>
-      <td>4</td>
-      <td>0.278</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.539</td>
-      <td>0.454</td>
-      <td>324133</td>
-      <td>0.2600</td>
-      <td>0</td>
-      <td>0.000780</td>
-      <td>8</td>
-      <td>0.0675</td>
-      <td>-13.193</td>
-      <td>0</td>
-      <td>63</td>
-      <td>0.0401</td>
-      <td>174.322</td>
-      <td>5</td>
-      <td>0.598</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.360</td>
-      <td>0.676</td>
-      <td>205773</td>
-      <td>0.4400</td>
-      <td>0</td>
-      <td>0.000069</td>
-      <td>0</td>
-      <td>0.1620</td>
-      <td>-11.960</td>
-      <td>1</td>
-      <td>59</td>
-      <td>0.0291</td>
-      <td>80.434</td>
-      <td>4</td>
-      <td>0.499</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.984</td>
-      <td>0.466</td>
-      <td>294307</td>
-      <td>0.0718</td>
-      <td>0</td>
-      <td>0.000931</td>
-      <td>0</td>
-      <td>0.1070</td>
-      <td>-17.999</td>
-      <td>1</td>
-      <td>56</td>
-      <td>0.0374</td>
-      <td>121.885</td>
-      <td>4</td>
-      <td>0.196</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.779</td>
-      <td>0.496</td>
-      <td>423573</td>
-      <td>0.6340</td>
-      <td>0</td>
-      <td>0.402000</td>
-      <td>5</td>
-      <td>0.0746</td>
-      <td>-10.328</td>
-      <td>0</td>
-      <td>60</td>
-      <td>0.0364</td>
-      <td>93.357</td>
-      <td>4</td>
-      <td>0.606</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-```python
-# display shape of data
-display(spotify_df[spotify_df["in_playlist"]==0].shape)
-```
-
-
-    (2500, 15)
-
-
 We have 5060 songs in our initial analysis. 2650 are included in Grace's playlist, and 2500 are not included in Grace's playlist. 
 
-
-```python
-# generate summary chart of features
-features = []
-means = []
-var = []
-ranges = []
-mins = []
-maxes = []
-
-for feature in spotify_df:
-    if feature != "in_playlist":
-        features.append(feature)
-        means.append(spotify_df[feature].mean())
-        var.append(spotify_df[feature].var())
-        ranges.append(spotify_df[feature].ptp())
-        mins.append(spotify_df[feature].min())
-        maxes.append(spotify_df[feature].max())
-
-summary_df = pd.DataFrame(data = {'feature': features, 
-                                  'mean': means,
-                                  'var' : var,
-                                  'range': ranges, 
-                                  'min': mins, 
-                                  'max': maxes}) 
-```
-
 Below are summary statistics for all the features we plan to analyze:
-
-
-```python
-display(summary_df)
-```
 
 
 <div>
@@ -490,32 +277,8 @@ display(summary_df)
 </div>
 
 
-We can see that all features have values that are expected as per the Spotify API documentation. To analyze each feature in more granularity we looked at density plots. 
-
-
-```python
-# define response column
-response_col = 'in_playlist'
-```
-
-
-```python
-# prepare data for display
-resp_col_loc = list(spotify_df.columns).index('in_playlist')
-spotify_graphs_df = spotify_df.drop(columns=[response_col])
-num_cols = len(spotify_graphs_df.columns)
-nbin = 15
-
-# iterate through all the features and display them
-fig, axs = plt.subplots(num_cols, 1, figsize=(10,50))
-for i in range(num_cols):
-    sns.distplot(spotify_graphs_df[spotify_df.in_playlist == 0][spotify_graphs_df.columns[i]], hist = False, kde = True, ax=axs[i])
-    sns.distplot(spotify_graphs_df[spotify_df.in_playlist == 1][spotify_graphs_df.columns[i]], hist = False, kde = True, ax=axs[i])
-    axs[i].set_title("Density of " + str(spotify_graphs_df.columns[i]))
-    axs[i].set_ylabel(r'Frequency')
-fig.subplots_adjust(hspace=.5)
-plt.show()
-```
+We can see that all features have values that are expected as per the Spotify API documentation. 
+To analyze each feature in more granularity we looked at density plots. 
 
 
 ![png](output_18_0.png)
@@ -531,22 +294,6 @@ In terms of speechiness, the distribution for playlist tracks has a much lower v
 Valence for non-playlist tracks is roughly uniformly distributed, while playlist tracks demonstrate a roughly normal distribution centered around 0.3.
 Finally in terms of popularity, playlist tracks show a peak in their distribution around 60, while non-playlist tracks have a more variable distribution with a peak between 45-55.
 The rest of the features are roughly similar in distribution between playlist and non-playlist tracks.
-
-
-```python
-# pair plots
-ax = sns.pairplot(spotify_df, hue = "in_playlist", diag_kind="kde")
-ax
-plt.show()
-```
-
-    /usr/share/anaconda3/lib/python3.6/site-packages/statsmodels/nonparametric/kde.py:488: RuntimeWarning: invalid value encountered in true_divide
-      binned = fast_linbin(X, a, b, gridsize) / (delta * nobs)
-    /usr/share/anaconda3/lib/python3.6/site-packages/statsmodels/nonparametric/kdetools.py:34: RuntimeWarning: invalid value encountered in double_scalars
-      FAC1 = 2*(np.pi*bw/RANGE)**2
-    /usr/share/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:26: RuntimeWarning: invalid value encountered in reduce
-      return umr_maximum(a, axis, None, out, keepdims)
-
 
 
 ![png](output_20_1.png)
