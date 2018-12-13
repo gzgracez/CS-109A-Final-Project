@@ -28,7 +28,8 @@ x_test, y_test = test.drop(columns=[response_col]), test[response_col].values
 
 # Baseline Model
 
-We began our project by first constructing a baseline model - one where we simply predict that all songs should be included in our existing playlist. This serves as a good source of comparison for our future models, which should at least do better than this trivial one.
+We began our project by first constructing a baseline model - one where we simply predict that all songs should be included in our existing playlist. 
+This serves as a good source of comparison for our future models, which should at least do better than this trivial one.
 
 ```python
 baseline_train_score = np.sum(y_train == 1) / len(train)
@@ -40,7 +41,7 @@ print('Baseline model (all songs are added to the existing playlist) test score:
     Baseline model (all songs are added to the existing playlist) train score: 0.5034584980237155
     Baseline model (all songs are added to the existing playlist) test score: 0.5158102766798419
 
-We can see that our trivial model does not perform very well in either the train or test set, achieving 50.35% accuracy in the train set and 51.58% accuracy in the test set. 
+We can see that our trivial model does not perform very well in either the train or test set, achieving 50.3% accuracy in the train set and 51.6% accuracy in the test set. 
 
 
 # Naive Logistic Classifier
