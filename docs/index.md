@@ -36,14 +36,12 @@ We are Tejal Patwardhan, Akshitha Ramachandran, and Grace Zhang, Group 49 for CS
 Special thanks to Pavlos Protopapas, Kevin Rader, and Rashmi Banthia for their assistance.
 
 <div class="container">
-  <div class="center">
+<div class="center">
   <img src="tej.jpeg" width="40%">
 <img src="grace.jpeg" width="40%">
 <img src="ak.jpeg" width="40%">
 <img src="wom.png" width="40%">
-  </div>
 </div>
-
 </div>
 
 
