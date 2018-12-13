@@ -49,7 +49,7 @@
         
           <li class="navigation-list-item">
             
-            <a href="http://localhost:4000/data-collection.html" class="navigation-list-link">Data Collection</a>
+            <a href="http://localhost:4000/final_notebook/data.html" class="navigation-list-link">Data Exploration</a>
             
           </li>
         
@@ -59,7 +59,7 @@
         
           <li class="navigation-list-item">
             
-            <a href="http://localhost:4000/eda.html" class="navigation-list-link">Exploratory Data Analysis</a>
+            <a href="http://localhost:4000/final_notebook/models.html" class="navigation-list-link">Models</a>
             
           </li>
         
@@ -70,26 +70,6 @@
           <li class="navigation-list-item">
             
             <a href="http://localhost:4000/conclusions.html" class="navigation-list-link">Conclusions</a>
-            
-          </li>
-        
-      
-    
-      
-        
-          <li class="navigation-list-item">
-            
-            <a href="http://localhost:4000/final_notebook/final_notebook.html" class="navigation-list-link">CS109-Final Notebook</a>
-            
-          </li>
-        
-      
-    
-      
-        
-          <li class="navigation-list-item">
-            
-            <a href="http://localhost:4000/million-playlist-README.html" class="navigation-list-link">Million Playlist Dataset</a>
             
           </li>
         
@@ -135,7 +115,6 @@
 
 <ol id="markdown-toc">
   <li><a href="#motivation" id="markdown-toc-motivation">Motivation</a></li>
-  <li><a href="#playlists" id="markdown-toc-playlists">Playlists</a></li>
   <li><a href="#approach" id="markdown-toc-approach">Approach</a></li>
   <li><a href="#literature-review" id="markdown-toc-literature-review">Literature Review</a></li>
 </ol>
@@ -160,12 +139,6 @@ and then use that model to find her more songs for her playlist.</p>
   <li>to produce a sleek interface using <i>jekyll</i> to display our analysis, so that others can replicate our method on their playlists</li>
 </ol>
 
-<h1 id="playlists">Playlists</h1>
-<h2 class="no_toc" id="graces-favorites-playlist">Grace’s Favorites Playlist</h2>
-<iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/6Jpt5r9KD8FEUDioBFV0r0" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<h2 class="no_toc" id="graces-not-so-favorites-playlist">Grace’s Not-So-Favorites Playlist</h2>
-<iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
 <h1 id="approach">Approach</h1>
 <p>First, we asked Grace to label a set of songs as included in her playlist and another set of songs as songs she would not want to listen to.
 We used Spotify API to download her playlists with feature data for each song in the playlist.
@@ -183,11 +156,14 @@ Next, we built and fit a variety of classifiers for Grace’s playlist on the tr
   <li>Random Forest</li>
   <li>Decision Tree Classifier with Bagging</li>
   <li>Decision Tree Classifier with Boosting</li>
-  <li>Artificial Neural Network
-For each model, we evaluated its accuracy on both our training and and test set. 
-Based on accuracy scores, we determined the classifier with the highest performance on the test set. 
-Finally, we ran our best-performing model on a fresh set of songs and asked Grace if she liked her new playlist!</li>
+  <li>Artificial Neural Network</li>
 </ul>
+
+<p>For each model, we evaluated its accuracy on both our training and and test set. 
+Based on accuracy scores, we determined the classifier with the highest performance on the test set. 
+Finally, we ran our best-performing model on a fresh set of songs and asked Grace if she liked her new playlist.</p>
+
+<hr />
 
 <h1 id="literature-review">Literature Review</h1>
 <p><a href="https://arxiv.org/pdf/1710.03208.pdf">Current Challenges and Visions in Music Recommender Systems Research</a></p>
