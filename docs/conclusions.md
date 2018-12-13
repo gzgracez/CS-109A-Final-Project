@@ -41,6 +41,7 @@ Our best performing models were all ensemble methods.
 The boosted decision tree classifier, the random forest model, and the decision tree classifier with bagging performed best.
 We tuned the parameters and hyperparameters of each base model to maximize the accuracy score of each, 
 which leads us to believe that we achieved the maximum possible classification accuracy given the constraints of our dataset.
+Indeed, this model performs much better than the baseline model, which achieves an accuracy of only 51.6% in the test set.
 
 Finally, while usually time and space are considerations when evaluating different types of models, 
 because they do not constrain our original problem, we chose to focus on accuracy. 

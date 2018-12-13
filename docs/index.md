@@ -20,7 +20,7 @@ nav_order: 1
 For our final project, we created a best-performing model to help classify songs for Grace's playlist. 
 We used the Spotify API to download features for songs Grace selected as playlist-worthy and playlist-unworthy.
 After getting a grasp on the data, we built classifiers to predict whether a song should be in or out of her playlist.
-The Decision Tree Classifier with Boosting was the best-performing model, improving our accuracy in the test set from 67.1% to 93.0%.
+The Decision Tree Classifier with Boosting was the best-performing model, improving our accuracy in the test set from 51.6% to 93.0%.
 We used this model to classify a fresh set of songs for Grace, and she loved listening to her augmented playlist!
 
 # Website Navigation
