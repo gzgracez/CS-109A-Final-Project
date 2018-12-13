@@ -12,6 +12,8 @@ nav_order: 4
 1. TOC
 {:toc}
 
+---
+
 # Baseline Logistic Classifier
 
 
