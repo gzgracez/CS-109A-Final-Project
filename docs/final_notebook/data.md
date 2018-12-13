@@ -300,3 +300,8 @@ The rest of the features are roughly similar in distribution between playlist an
 
 
 The pairplot above demonstrates a few interesting things. First, we notice positive correlations between loudness and energy, loudness and danceability, and danceablility and loudness. All three correlations are weak to moderate. We also notice a negative correlation between acousticness and energy. 
+
+
+
+
+

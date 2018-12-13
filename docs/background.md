@@ -67,6 +67,11 @@ Finally, we ran our best-performing model on a fresh set of songs and asked Grac
 		- If training sets were subset, using a random subset of the playlist rather than the sequentially first songs in a playlist was most accurate in training a model
 	- Excluding "title" as meta-data for the playlist produced better models across the board
 	- Solutions using the descriptors from the Spotify API were more efficient
+	
+	
+	
+	
+	
 
 [TrailMix: An Ensemble Recommender System for Playlist Curation and Continuation](people.tamu.edu/~zhaoxing623/publications/XZ_TrailMix.pdf)
 + Successful RecSys project TrailMix compared 3 recommender models:

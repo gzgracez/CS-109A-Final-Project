@@ -63,3 +63,8 @@ Finally collaborative filtering is another type of data modeling that is commonl
 {: .no_toc }
 There are many hyperparameters that can be tuned when configuring neural networks. Additionally, the number of epochs they run for along with the number of predictors are all factors that influence the accuracy and effectiveness of these networks. As such playing around with these variables would improve the model.
 
+
+
+
+
+
