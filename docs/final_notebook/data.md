@@ -82,63 +82,25 @@ header {
 </style>
 
 
-
-
-
-
-```python
-# import necessary notebooks
-import numpy as np
-import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
-
-import statsmodels.api as sm
-from statsmodels.api import OLS
-
-from sklearn import preprocessing
-from sklearn.utils import resample
-from sklearn.model_selection import cross_val_score
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.metrics import r2_score
-from sklearn.model_selection import train_test_split, KFold
-from sklearn.linear_model import LogisticRegression
-from sklearn.linear_model import LogisticRegressionCV
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.linear_model import RidgeCV
-from sklearn.linear_model import LassoCV
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis 
-from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis 
-from sklearn.preprocessing import PolynomialFeatures
-from pandas.plotting import scatter_matrix
-import seaborn as sns
-import keras 
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.wrappers.scikit_learn import KerasClassifier
-from sklearn.model_selection import StratifiedKFold
-
-sns.set(style='whitegrid')
-pd.set_option('display.width', 1500)
-pd.set_option('display.max_columns', 100)
-
-import random
-
-%matplotlib inline
-```
-
-<hr style="height:2pt">
-
 # Data Collection and Cleaning
 
-We collected our data by using the Spotify API to create a json file of tracks and their features. Additionally, we labeled each track with a new feature , `in_playlist`, which equals 1 if Grace would include the track in her playlist and 0 if Grace would not include the track in her playlist. 
 
-We accomplished this by manually creating 2 separate playlists, where one playlist includes random songs that Grace would include in her playlist and the other playlist includes random songs that Grace would not include in her playlist. We used the Spotify API `user_playlist_tracks` endpoint to collect some features, including `track_id`s, of the tracks in each of these playlists. We then used the `audio_features` endpoint of the Spotify API to get additional features like `danceability`, etc. for each of our tracks. Finally, we added the `in_playlist` feature to each of our tracks and wrote our final object to `spotify.json`.
+## Playlists
+Grace created two playlists. The first includes random songs that Grace would include in her playlist (a "favorites" playlist), and the other playlist includes random songs that Grace would not include in her playlist (the "not-so-favorites" playlist). 
+These two playlists are linked below
+## Grace's Favorites Playlist
+{: .no_toc }
+<iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/6Jpt5r9KD8FEUDioBFV0r0" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+## Grace's Not-So-Favorites Playlist
+{: .no_toc }
+<iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+## Spotify API 
+We extracted our data from these by using the Spotify API to create a json file of tracks and their features. 
+We used the Spotify API `user_playlist_tracks` endpoint to collect track features, including `track_id`s, of the tracks in each of these playlists. 
+We then used the `audio_features` endpoint of the Spotify API to get additional features like `danceability` for each of our tracks. 
+We added the `in_playlist` feature to each of our tracks, labeling them with a 1 if they were from the favorites playlist and a 0 for the not-so-favorites playlist.
+Finally, we wrote our final object to `spotify.json`.
 
 
 <hr style="height:2pt">
