@@ -28,9 +28,13 @@ Our best performing models were all ensemble methods with the decision tree, wit
 
 ## Future Work
 # Data Inclusion
-We generated a dataset of songs for Grace to classify by downloading her "favorites" and "unfavorites" playlists on Spotify. 
-In the future, increasing the size of the dataset will be useful.
+We generated a dataset by consolidating a large array of songs that vary in genre, language, tempo, rhythm, etc. We tried to curate a dataset that mimicked the variety of songs that Spotify has. Grace then had to go through these songs and classify whether she would like them in her playlist or not. Due to a multitude of constraints, we only had 5000 songs between both and training and test data. Ideally more songs that accurately capture the variety of songs that Spotify has would improve the training procedures for models.
+
+# Adapting Playlists 
+This entire project was built off of the preferences of one individual - Grace. While this proved to be a good proof of concept, future exploration should be done to analyze how the best model can help create playlists for others based upon their interests. 
+
 # Collaborative Filtering
+Finally collaborative filtering is another type of data modeling that is commonly used for recommendation algorithms. It is based on the fundamental idea that people perfer things similar to the things they've established they like. As such, it would be a good model to further investigate for this given project. 
+
 # Improve Neural Network
-# Other Playlists
-In the future, we can repeat this analysis on the playlists of others to find the best performing model.
+There are many hyperparameters that can be tuned when configuring neural networks. Additionally, the number of epochs they run for along with the number of predictors are all factors that influence the accuracy and effectiveness of these networks. As such playing around with these variables would improve the model.
