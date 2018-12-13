@@ -23,6 +23,8 @@ After getting a grasp on the data, we built classifiers to predict whether a son
 The Decision Tree Classifier with Boosting was the best-performing model, improving our accuracy in the test set from 51.6% to 93.0%.
 We used this model to classify a fresh set of songs for Grace, and she loved listening to her augmented playlist!
 
+  <img src="sy.png" width="40%">
+
 # Website Navigation
 Our motivations for the project as well as our literature review can be found on the [background](background.html) page. 
 A description of the data as well as our exploratory data analysis can be found on the [data](final_notebook/data.html) page.
