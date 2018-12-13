@@ -5,13 +5,15 @@ nav_order: 4
 ---
 
 # Results
-Our best model performs with an accuracy of 95.4% in the training set, and 93.0% in the test set.
+Our best model is the boosted decision tree classifier with a depth of 2 and 751 iterations, 
+which performs with an accuracy of 95.4% in the training set and 93.0% in the test set.
+
 The following table summarizes the accuracies for all our models, ordered by accuracy in the test set:
 
 |                 Model Type                 | Train Accuracy      | Test Accuracy      |
 |--------------------------------------------|:-------------------:|:------------------:|
 |  Logistic Regression With Quadratic Terms  |       49.7%         |       48.4%        |
-|                 Neural Network             |       50.5%         |       51.6%        |
+|                 Neural Network             |       62.8%         |       65.2%        |
 |                     kNN                    |       63.1%         |       65.9%        |
 | Logistic Regression With L2 Regularization |       69.2%         |       66.9%        |
 |        Baseline Logistic Regression        |       69.4%         |       67.1%        |
@@ -24,12 +26,16 @@ The following table summarizes the accuracies for all our models, ordered by acc
 |       Boosted Decision Tree Classifier     |       95.4%         |       93.0%        |
 
 Our lowest performing models include the logistic regression with quadratic terms, the neural network, and the kNN model, all of which perform worse than the baseline.
-Our best performing models were all ensemble methods with the decision tree, with the boosted decision tree classifier, the random forest model, and the decision tree classifier with bagging performing best.
+Our best performing models were all ensemble methods. 
+The boosted decision tree classifier, the random forest model, and the decision tree classifier with bagging performed best.
+We tuned the parameters and hyperparameters of each base model to maximize the accuracy score of each, 
+which leads us to believe that we achieved the maximum possible classification accuracy given the constraints of our dataset.
 
 ## Future Work
 # Data Inclusion
 We generated a dataset of songs for Grace to classify by downloading her "favorites" and "unfavorites" playlists on Spotify. 
 In the future, increasing the size of the dataset will be useful.
+# Million playlist dataset
 # Collaborative Filtering
 # Improve Neural Network
 # Other Playlists
