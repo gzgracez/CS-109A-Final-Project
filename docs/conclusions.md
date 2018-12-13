@@ -23,7 +23,6 @@ The following table summarizes the accuracies for all our models, ordered by acc
 
 |                 Model Type                 | Train Accuracy      | Test Accuracy      |
 |--------------------------------------------|:-------------------:|:------------------:|
-|  Logistic Regression With Quadratic Terms  |       49.7%         |       48.4%        |
 |   Naive Model  							 |       50.3%         |       51.6%        |
 |                 Neural Network             |       62.8%         |       65.2%        |
 |                     kNN                    |       63.1%         |       65.9%        |
@@ -37,11 +36,12 @@ The following table summarizes the accuracies for all our models, ordered by acc
 |               Random Forest                |       92.9%         |       92.0%        |
 |       Boosted Decision Tree Classifier     |       95.4%         |       93.0%        |
 
-Our lowest performing models include the logistic regression with quadratic terms, the naive model, and the neural network.
+Our lowest performing models include the logistic regression with the naive model, the neural network, and the kNN model.
 Our best performing models were all ensemble methods. 
 The boosted decision tree classifier, the random forest model, and the decision tree classifier with bagging performed best.
 We tuned the parameters and hyperparameters of each base model to maximize the accuracy score of each, 
 which leads us to believe that we achieved the maximum possible classification accuracy given the constraints of our dataset.
+Indeed, this model performs much better than the baseline model, which achieves an accuracy of only 51.6% in the test set.
 
 Finally, while usually time and space are considerations when evaluating different types of models, 
 because they do not constrain our original problem, we chose to focus on accuracy. 
