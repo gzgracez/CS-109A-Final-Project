@@ -46,7 +46,7 @@ which leads us to believe that we achieved the maximum possible classification a
 Finally, while usually time and space are considerations when evaluating different types of models, 
 because they do not constrain our original problem, we chose to focus on accuracy. 
 However, a qualitative assessment of these metrics determined that all models were comparable in terms of runtime and memory use with the exception of the neural nets that took additional time.
-
+One consideration to note is that the boosted model is less suited for parallelization than other ensemble methods, because it is iterative. However, the runtime was less than a few seconds, so we will prioritize the accuracy of the model over this concern.
 ---
 
 # Extending Our Model
