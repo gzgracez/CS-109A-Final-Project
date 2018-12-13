@@ -46,6 +46,8 @@ Finally, while usually time and space are usually considerations when evaluating
 that was measured for this project because it wasn't a constraint. 
 However, a qualitative assessment of these metrics determined that all models were comparable with the exception of the neural nets that took additional time.
 
+---
+
 # Extending Our Model
 We can now try to generate a playlist customized to Grace's taste using our chosen model. 
 We will present the model with a list of songs that both Grace and the model have not seen before. 
@@ -95,6 +97,8 @@ The model performed accurately, except for one song which she said she would not
 One reason for this mishap could be that our model isn't 100% accurate, so this song could be by chance one of the ones it messes up; 1 missed song out of 26 is reasonable for a model with 93% accuracy. 
 Another reason could be that Grace's actual taste is different from how she made the playlist (perhaps she is in a different emotive or environmental state that temporally affects her preferences, or perhaps her underlying preferences have changed). 
 Despite this error, overall, Grace was pleased that we could use data science to automate her playlist selection procees!
+
+---
 
 
 # Limitations and Future Work
