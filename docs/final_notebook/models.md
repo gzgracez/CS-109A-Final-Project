@@ -28,7 +28,8 @@ x_test, y_test = test.drop(columns=[response_col]), test[response_col].values
 
 # Baseline Model
 
-We began our project by first constructing a baseline model - one where we simply predict that all songs should be included in our existing playlist. This serves as a good source of comparison for our future models, which should at least do better than this trivial one.
+We began our project by first constructing a baseline model - one where we simply predict that all songs should be included in our existing playlist. 
+This serves as a good source of comparison for our future models, which should at least do better than this trivial one.
 
 ```python
 baseline_train_score = np.sum(y_train == 1) / len(train)
@@ -40,12 +41,14 @@ print('Baseline model (all songs are added to the existing playlist) test score:
     Baseline model (all songs are added to the existing playlist) train score: 0.5034584980237155
     Baseline model (all songs are added to the existing playlist) test score: 0.5158102766798419
 
-We can see that our trivial model does not perform very well in either the train or test set, achieving 50.35% accuracy in the train set and 51.58% accuracy in the test set. 
+We can see that our trivial model does not perform very well in either the train or test set, achieving 50.3% accuracy in the train set and 51.6% accuracy in the test set. 
 
 
-# Naive Logistic Classifier
+# Logistic Classifier
 
-Given our objective, we next considered simple, interpretable models that could help us classify our data. A clear option was the naive logistic model, which we fit on all 14 features of our training data. 
+Given our objective, we next considered simple, interpretable models that could help us classify our data. 
+A clear option was the logistic model, which works well for binary classifications.
+We fit a logistic classifier on all 14 features of our training data. 
 
 ```python
 # set seed
@@ -219,10 +222,12 @@ print("[kNN] Classification accuracy for test set: ", acc_test[k_index])
     [kNN] Classification accuracy for test set:  0.6590909090909091
 
 
-Our kNN regressor performs at the same level as our baseline logistic classifier. The test set is at a 65.9% accuracy while the training is at 63.1%. Additionally, we see that our $R^2$ score converges to roughly 0.1, which is not great.
+Our kNN regressor performs at the same level as our baseline logistic classifier. The test set is at a 65.9% accuracy while the training is at 63.1%.
 
 # LDA and QDA
 
+We now consider discriminant analysis, which provides an alternative approach to classification.
+We will try both LDA and QDA and compare them.
 
 ```python
 # LDA
@@ -255,7 +260,8 @@ print("[QDA] Classification accuracy for test set:",acc_qda_test)
 LDA performs better than QDA, and both perform above baseline. LDA achieves an accuracy of about 88.1% in the training and 88.4% in the testing data, while QDA ahieves an accuracy of about 86.6% in the training and 86.7% in the testing data.
 
 # Decision Trees
-
+The next type of decision model we are interested in is the decision tree.
+We will first create a simple tree.
 
 ```python
 # classify by depth
@@ -325,7 +331,8 @@ print("[Decision Tree Classifier] Mean classification accuracy test set: ", test
 We achieve the best cross-validation score at a tree depth of 6, with an accuracy of 88.0%. Additionally, we observe a relatively narrow spread in estimated performances, as there is a roughly 2% difference between +/- two standard deviations. We see that this model also performs quite well in the test set, with an accuracy score of 88.7%, proving superior to all the other models we have tried so far.
 
 # Random Forest
-
+Now, we will consider ensemble methods that improve upon our simple decision tree.
+The first one we try is the random forest, which randomly subsets predictors upon which to generate decision trees.
 
 ```python
 # config parameters
@@ -358,8 +365,8 @@ print("[Random Forest] Classification accuracy for test set:", test_score_rf)
 A random forest, at the same depth as the decision tree (namely a depth of 6) performs even better. The test data reaches an accuracy of about 92.6% in the training at 91.5% in the test. 
 
 # Bagging
-
-Create 45 bootstrapped datasets, fitting a decision tree to each of them and saving their predictions:
+Our next ensemble method is bagging. 
+We create 45 bootstrapped datasets, fitting a decision tree to each of them and saving their predictions:
 
 
 ```python
@@ -449,7 +456,7 @@ print("[Bagging] Classification accuracy for test set: ", bagging_test_score)
 The model clearly performed better after using bootstrapped data to fit it. It has increased from 88% on the training data to 94.0%, and from 88.1% on the test data to 90.4%. This makes bagging the most accurate model we have tried so far.
 
 # Boosting
-
+Finally, we will consider boosting, an iterative approach that might eliminate some more of the error in our trees.
 
 ```python
 # define classifier function
@@ -512,7 +519,7 @@ We see based upon an AdaBoostClassifier the maximum test accuracy of 93.0% is at
 
 # Neural Networks
 
-We next created an artificial neural network to classify our playlist songs.
+Finally, we created an artificial neural network to classify our playlist songs.
 
 
 ```python
