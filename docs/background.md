@@ -36,19 +36,19 @@ First, we asked Grace to label a set of songs as included in her playlist and an
 We used Spotify API to download her playlists with feature data for each song in the playlist.
 We then randomly split this data into a training and test set. 
 Next, we built and fit a variety of classifiers for Grace's playlist on the training set. Models we built include:
-- Naive Model
-- Logistic Regression
-- Logistic Regression With Quadratic Terms
-- Logistic Regression With L1 Regularization
-- Logistic Regression With L2 Regularization
+- Baseline Model
+- Logistic Classifier
+- Logistic Classifier With Quadratic Terms
+- Logistic Classifier With L1 Regularization
+- Logistic Classifier With L2 Regularization
 - k-Nearest Neighbors
 - Linear Discriminant Analysis
 - Quadratic Discriminant Analysis
 - Decision Tree Classifier
-- Random Forest
 - Decision Tree Classifier with Bagging
+- Random Forest
 - Decision Tree Classifier with Boosting
-- Artificial Neural Network
+- Neural Network
 
 For each model, we evaluated its accuracy on both our training and and test set. 
 Based on accuracy scores, we determined the classifier with the highest performance on the test set. 

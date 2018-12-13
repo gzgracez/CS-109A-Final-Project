@@ -330,43 +330,10 @@ print("[Decision Tree Classifier] Mean classification accuracy test set: ", test
 
 We achieve the best cross-validation score at a tree depth of 6, with an accuracy of 88.0%. Additionally, we observe a relatively narrow spread in estimated performances, as there is a roughly 2% difference between +/- two standard deviations. We see that this model also performs quite well in the test set, with an accuracy score of 88.7%, proving superior to all the other models we have tried so far.
 
-# Random Forest
-Now, we will consider ensemble methods that improve upon our simple decision tree.
-The first one we try is the random forest, which randomly subsets predictors upon which to generate decision trees.
-
-```python
-# config parameters
-num_trees = 45
-new_depth = 6
-
-# model random forest
-model_rf = RandomForestClassifier(n_estimators=num_trees, max_depth=new_depth)
-
-# fit model on X_train data
-model_rf.fit(x_train, y_train)
-
-# predict using model
-y_pred_train_rf = model_rf.predict(x_train)
-y_pred_test_rf = model_rf.predict(x_test)
-
-# accuracy from train and test
-train_score_rf = accuracy_score(y_train, y_pred_train_rf)
-test_score_rf = accuracy_score(y_test, y_pred_test_rf)
-
-# print accuracy scores
-print("[Random Forest] Classification accuracy for train set: ", train_score_rf)
-print("[Random Forest] Classification accuracy for test set:", test_score_rf)
-```
-
-    [Random Forest] Classification accuracy for train set:  0.9300889328063241
-    [Random Forest] Classification accuracy for test set: 0.9229249011857708
-
-
-A random forest, at the same depth as the decision tree (namely a depth of 6) performs even better. The test data reaches an accuracy of about 92.6% in the training at 91.5% in the test. 
-
 # Bagging
-Our next ensemble method is bagging. 
-We create 45 bootstrapped datasets, fitting a decision tree to each of them and saving their predictions:
+
+Now, we will consider ensemble methods that improve upon our simple decision tree.
+The first one we try is bagging: we create 45 bootstrapped datasets, fitting a decision tree to each of them and saving their predictions:
 
 
 ```python
@@ -454,6 +421,42 @@ print("[Bagging] Classification accuracy for test set: ", bagging_test_score)
 
 
 The model clearly performed better after using bootstrapped data to fit it. It has increased from 88% on the training data to 94.0%, and from 88.1% on the test data to 90.4%. This makes bagging the most accurate model we have tried so far.
+
+
+# Random Forest
+
+Our next ensemble method is random forest, which randomly subsets predictors upon which to generate decision trees.
+
+```python
+# config parameters
+num_trees = 45
+new_depth = 6
+
+# model random forest
+model_rf = RandomForestClassifier(n_estimators=num_trees, max_depth=new_depth)
+
+# fit model on X_train data
+model_rf.fit(x_train, y_train)
+
+# predict using model
+y_pred_train_rf = model_rf.predict(x_train)
+y_pred_test_rf = model_rf.predict(x_test)
+
+# accuracy from train and test
+train_score_rf = accuracy_score(y_train, y_pred_train_rf)
+test_score_rf = accuracy_score(y_test, y_pred_test_rf)
+
+# print accuracy scores
+print("[Random Forest] Classification accuracy for train set: ", train_score_rf)
+print("[Random Forest] Classification accuracy for test set:", test_score_rf)
+```
+
+    [Random Forest] Classification accuracy for train set:  0.9300889328063241
+    [Random Forest] Classification accuracy for test set: 0.9229249011857708
+
+
+A random forest, at the same depth as the decision tree (namely a depth of 6) performs even better. The test data reaches an accuracy of about 92.6% in the training at 91.5% in the test. 
+
 
 # Boosting
 Finally, we will consider boosting, an iterative approach that might eliminate some more of the error in our trees.

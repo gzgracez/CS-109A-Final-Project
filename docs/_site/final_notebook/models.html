@@ -116,14 +116,14 @@
 <ol id="markdown-toc">
   <li><a href="#setup" id="markdown-toc-setup">Setup</a></li>
   <li><a href="#baseline-model" id="markdown-toc-baseline-model">Baseline Model</a></li>
-  <li><a href="#naive-logistic-classifier" id="markdown-toc-naive-logistic-classifier">Naive Logistic Classifier</a></li>
+  <li><a href="#logistic-classifier" id="markdown-toc-logistic-classifier">Logistic Classifier</a></li>
   <li><a href="#logistic-classifier-with-quadratic-terms" id="markdown-toc-logistic-classifier-with-quadratic-terms">Logistic Classifier with Quadratic Terms</a></li>
   <li><a href="#l1-and-l2-regularization" id="markdown-toc-l1-and-l2-regularization">L1 and L2 Regularization</a></li>
   <li><a href="#knn" id="markdown-toc-knn">kNN</a></li>
   <li><a href="#lda-and-qda" id="markdown-toc-lda-and-qda">LDA and QDA</a></li>
   <li><a href="#decision-trees" id="markdown-toc-decision-trees">Decision Trees</a></li>
-  <li><a href="#random-forest" id="markdown-toc-random-forest">Random Forest</a></li>
   <li><a href="#bagging" id="markdown-toc-bagging">Bagging</a></li>
+  <li><a href="#random-forest" id="markdown-toc-random-forest">Random Forest</a></li>
   <li><a href="#boosting" id="markdown-toc-boosting">Boosting</a></li>
   <li><a href="#neural-networks" id="markdown-toc-neural-networks">Neural Networks</a></li>
   <li><a href="#model-selection" id="markdown-toc-model-selection">Model Selection</a></li>
@@ -135,7 +135,7 @@
 
 <h1 id="setup">Setup</h1>
 
-<p>We first split our data into a train and test set, so that we are later able to assess both how well our model performs in both a train set and a not-seen test set.</p>
+<p>We first split our data into a train and test set, so that we are later able to assess how well our model performs in both a train set and a not-seen test set.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">spotify_df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">response_col</span><span class="p">]),</span> <span class="n">train</span><span class="p">[</span><span class="n">response_col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
@@ -144,7 +144,8 @@
 
 <h1 id="baseline-model">Baseline Model</h1>
 
-<p>We began our project by first constructing a baseline model - one where we simply predict that all songs should be included in our existing playlist. This serves as a good source of comparison for our future models, which should at least do better than this trivial one.</p>
+<p>We began our project by first constructing a baseline model - one where we simply predict that all songs should be included in our existing playlist. 
+This serves as a good source of comparison for our future models, which should at least do better than this trivial one.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">baseline_train_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">y_train</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
 <span class="n">baseline_test_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">y_test</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
@@ -156,11 +157,13 @@
 Baseline model (all songs are added to the existing playlist) test score: 0.5158102766798419
 </code></pre></div></div>
 
-<p>We can see that our trivial model does not perform very well in either the train or test set, achieving 50.35% accuracy in the train set and 51.58% accuracy in the test set.</p>
+<p>We can see that our trivial model does not perform very well in either the train or test set, achieving 50.3% accuracy in the train set and 51.6% accuracy in the test set.</p>
 
-<h1 id="naive-logistic-classifier">Naive Logistic Classifier</h1>
+<h1 id="logistic-classifier">Logistic Classifier</h1>
 
-<p>Given our objective, we next considered simple, interpretable models that could help us classify our data. A clear option was the naive logistic model, which we fit on all 14 features of our training data.</p>
+<p>Given our objective, we next considered simple, interpretable models that could help us classify our data. 
+A clear option was the logistic model, which works well for binary classifications.
+We fit a logistic classifier on all 14 features of our training data.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># set seed</span>
 <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -305,7 +308,7 @@ Baseline model (all songs are added to the existing playlist) test score: 0.5158
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="output_38_0.png" alt="png" /></p>
+<p><img src="/final_notebook/output_38_0.png" alt="png" /></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># determine which k index has best test accuracy</span>
 <span class="n">k_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">acc_test</span><span class="p">)</span>
@@ -317,9 +320,12 @@ Baseline model (all songs are added to the existing playlist) test score: 0.5158
 [kNN] Classification accuracy for test set:  0.6590909090909091
 </code></pre></div></div>
 
-<p>Our kNN regressor performs at the same level as our baseline logistic classifier. The test set is at a 65.9% accuracy while the training is at 63.1%. Additionally, we see that our $R^2$ score converges to roughly 0.1, which is not great.</p>
+<p>Our kNN regressor performs at the same level as our baseline logistic classifier. The test set is at a 65.9% accuracy while the training is at 63.1%.</p>
 
 <h1 id="lda-and-qda">LDA and QDA</h1>
+
+<p>We now consider discriminant analysis, which provides an alternative approach to classification.
+We will try both LDA and QDA and compare them.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># LDA</span>
 <span class="n">lda</span> <span class="o">=</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">()</span>
@@ -351,6 +357,8 @@ Baseline model (all songs are added to the existing playlist) test score: 0.5158
 <p>LDA performs better than QDA, and both perform above baseline. LDA achieves an accuracy of about 88.1% in the training and 88.4% in the testing data, while QDA ahieves an accuracy of about 86.6% in the training and 86.7% in the testing data.</p>
 
 <h1 id="decision-trees">Decision Trees</h1>
+<p>The next type of decision model we are interested in is the decision tree.
+We will first create a simple tree.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># classify by depth</span>
 <span class="k">def</span> <span class="nf">treeClassifierByDepth</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cvt</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
@@ -410,40 +418,10 @@ Mean +/- 2 SD: ( 0.8649746226416641 , 0.8909557288057866 )
 
 <p>We achieve the best cross-validation score at a tree depth of 6, with an accuracy of 88.0%. Additionally, we observe a relatively narrow spread in estimated performances, as there is a roughly 2% difference between +/- two standard deviations. We see that this model also performs quite well in the test set, with an accuracy score of 88.7%, proving superior to all the other models we have tried so far.</p>
 
-<h1 id="random-forest">Random Forest</h1>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># config parameters</span>
-<span class="n">num_trees</span> <span class="o">=</span> <span class="mi">45</span>
-<span class="n">new_depth</span> <span class="o">=</span> <span class="mi">6</span>
-
-<span class="c"># model random forest</span>
-<span class="n">model_rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="n">num_trees</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">new_depth</span><span class="p">)</span>
-
-<span class="c"># fit model on X_train data</span>
-<span class="n">model_rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c"># predict using model</span>
-<span class="n">y_pred_train_rf</span> <span class="o">=</span> <span class="n">model_rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
-<span class="n">y_pred_test_rf</span> <span class="o">=</span> <span class="n">model_rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
-
-<span class="c"># accuracy from train and test</span>
-<span class="n">train_score_rf</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train_rf</span><span class="p">)</span>
-<span class="n">test_score_rf</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_test_rf</span><span class="p">)</span>
-
-<span class="c"># print accuracy scores</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"[Random Forest] Classification accuracy for train set: "</span><span class="p">,</span> <span class="n">train_score_rf</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"[Random Forest] Classification accuracy for test set:"</span><span class="p">,</span> <span class="n">test_score_rf</span><span class="p">)</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Random Forest] Classification accuracy for train set:  0.9300889328063241
-[Random Forest] Classification accuracy for test set: 0.9229249011857708
-</code></pre></div></div>
-
-<p>A random forest, at the same depth as the decision tree (namely a depth of 6) performs even better. The test data reaches an accuracy of about 92.6% in the training at 91.5% in the test.</p>
-
 <h1 id="bagging">Bagging</h1>
 
-<p>Create 45 bootstrapped datasets, fitting a decision tree to each of them and saving their predictions:</p>
+<p>Now, we will consider ensemble methods that improve upon our simple decision tree.
+The first one we try is bagging: we create 45 bootstrapped datasets, fitting a decision tree to each of them and saving their predictions:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># bootstrap</span>
 <span class="n">bagging_train_arr</span> <span class="o">=</span> <span class="p">[]</span>
@@ -526,7 +504,41 @@ Mean +/- 2 SD: ( 0.8649746226416641 , 0.8909557288057866 )
 
 <p>The model clearly performed better after using bootstrapped data to fit it. It has increased from 88% on the training data to 94.0%, and from 88.1% on the test data to 90.4%. This makes bagging the most accurate model we have tried so far.</p>
 
+<h1 id="random-forest">Random Forest</h1>
+
+<p>Our next ensemble method is random forest, which randomly subsets predictors upon which to generate decision trees.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># config parameters</span>
+<span class="n">num_trees</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">new_depth</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c"># model random forest</span>
+<span class="n">model_rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="n">num_trees</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">new_depth</span><span class="p">)</span>
+
+<span class="c"># fit model on X_train data</span>
+<span class="n">model_rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c"># predict using model</span>
+<span class="n">y_pred_train_rf</span> <span class="o">=</span> <span class="n">model_rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">y_pred_test_rf</span> <span class="o">=</span> <span class="n">model_rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+<span class="c"># accuracy from train and test</span>
+<span class="n">train_score_rf</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train_rf</span><span class="p">)</span>
+<span class="n">test_score_rf</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_test_rf</span><span class="p">)</span>
+
+<span class="c"># print accuracy scores</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"[Random Forest] Classification accuracy for train set: "</span><span class="p">,</span> <span class="n">train_score_rf</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"[Random Forest] Classification accuracy for test set:"</span><span class="p">,</span> <span class="n">test_score_rf</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Random Forest] Classification accuracy for train set:  0.9300889328063241
+[Random Forest] Classification accuracy for test set: 0.9229249011857708
+</code></pre></div></div>
+
+<p>A random forest, at the same depth as the decision tree (namely a depth of 6) performs even better. The test data reaches an accuracy of about 92.6% in the training at 91.5% in the test.</p>
+
 <h1 id="boosting">Boosting</h1>
+<p>Finally, we will consider boosting, an iterative approach that might eliminate some more of the error in our trees.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># define classifier function</span>
 <span class="k">def</span> <span class="nf">boostingClassifier</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
@@ -578,7 +590,7 @@ Mean +/- 2 SD: ( 0.8649746226416641 , 0.8909557288057866 )
 
 <h1 id="neural-networks">Neural Networks</h1>
 
-<p>We next created an artificial neural network to classify our playlist songs.</p>
+<p>Finally, we created an artificial neural network to classify our playlist songs.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># check input and output dimensions</span>
 <span class="n">input_dim_2</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>

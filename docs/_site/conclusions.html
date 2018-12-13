@@ -137,9 +137,9 @@ which performs with an accuracy of 95.4% in the training set and 93.0% in the te
   </thead>
   <tbody>
     <tr>
-      <td>Logistic Regression With Quadratic Terms</td>
-      <td style="text-align: center">49.7%</td>
-      <td style="text-align: center">48.4%</td>
+      <td>Naive Model</td>
+      <td style="text-align: center">50.3%</td>
+      <td style="text-align: center">51.6%</td>
     </tr>
     <tr>
       <td>Neural Network</td>
@@ -199,17 +199,18 @@ which performs with an accuracy of 95.4% in the training set and 93.0% in the te
   </tbody>
 </table>
 
-<p>Our lowest performing models include the logistic regression with quadratic terms, the neural network, and the kNN model, all of which perform worse than the baseline.
+<p>Our lowest performing models include the logistic regression with the naive model, the neural network, and the kNN model.
 Our best performing models were all ensemble methods. 
 The boosted decision tree classifier, the random forest model, and the decision tree classifier with bagging performed best.
 We tuned the parameters and hyperparameters of each base model to maximize the accuracy score of each, 
-which leads us to believe that we achieved the maximum possible classification accuracy given the constraints of our dataset.</p>
+which leads us to believe that we achieved the maximum possible classification accuracy given the constraints of our dataset.
+Indeed, this model performs much better than the baseline model, which achieves an accuracy of only 51.6% in the test set.</p>
 
 <p>Finally, while usually time and space are considerations when evaluating different types of models, 
 because they do not constrain our original problem, we chose to focus on accuracy. 
-However, a qualitative assessment of these metrics determined that all models were comparable in terms of runtime and memory use with the exception of the neural nets that took additional time.</p>
-
-<hr />
+However, a qualitative assessment of these metrics determined that all models were comparable in terms of runtime and memory use with the exception of the neural nets that took additional time.
+One consideration to note is that the boosted model is less suited for parallelization than other ensemble methods, because it is iterative. However, the runtime was less than a few seconds, so we will prioritize the accuracy of the model over this concern.
+—</p>
 
 <h1 id="extending-our-model">Extending Our Model</h1>
 <p>We can now try to generate a playlist customized to Grace’s taste using our chosen model. 
