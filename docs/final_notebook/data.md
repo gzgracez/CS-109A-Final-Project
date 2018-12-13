@@ -139,7 +139,6 @@ Below are summary statistics for all the features we plan to analyze:
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>feature</th>
       <th>mean</th>
       <th>var</th>
@@ -150,7 +149,6 @@ Below are summary statistics for all the features we plan to analyze:
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
       <td>acousticness</td>
       <td>0.540199</td>
       <td>1.267884e-01</td>
@@ -159,7 +157,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>0.996</td>
     </tr>
     <tr>
-      <th>1</th>
       <td>danceability</td>
       <td>0.570920</td>
       <td>2.931912e-02</td>
@@ -168,7 +165,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>0.978</td>
     </tr>
     <tr>
-      <th>2</th>
       <td>duration_ms</td>
       <td>245718.492885</td>
       <td>1.911563e+10</td>
@@ -177,7 +173,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>3391040.000</td>
     </tr>
     <tr>
-      <th>3</th>
       <td>energy</td>
       <td>0.439224</td>
       <td>6.633419e-02</td>
@@ -186,7 +181,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>0.991</td>
     </tr>
     <tr>
-      <th>4</th>
       <td>instrumentalness</td>
       <td>0.143138</td>
       <td>9.302492e-02</td>
@@ -195,7 +189,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>0.987</td>
     </tr>
     <tr>
-      <th>5</th>
       <td>key</td>
       <td>5.223913</td>
       <td>1.251578e+01</td>
@@ -204,7 +197,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>11.000</td>
     </tr>
     <tr>
-      <th>6</th>
       <td>liveness</td>
       <td>0.163377</td>
       <td>1.798945e-02</td>
@@ -213,7 +205,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>0.992</td>
     </tr>
     <tr>
-      <th>7</th>
       <td>loudness</td>
       <td>-10.270219</td>
       <td>3.464989e+01</td>
@@ -222,7 +213,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>-0.300</td>
     </tr>
     <tr>
-      <th>8</th>
       <td>mode</td>
       <td>0.650198</td>
       <td>2.274856e-01</td>
@@ -231,7 +221,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>1.000</td>
     </tr>
     <tr>
-      <th>9</th>
       <td>popularity</td>
       <td>36.977470</td>
       <td>4.773025e+02</td>
@@ -240,7 +229,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>100.000</td>
     </tr>
     <tr>
-      <th>10</th>
       <td>speechiness</td>
       <td>0.070655</td>
       <td>6.217856e-03</td>
@@ -249,7 +237,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>0.922</td>
     </tr>
     <tr>
-      <th>11</th>
       <td>tempo</td>
       <td>117.657563</td>
       <td>8.604272e+02</td>
@@ -258,7 +245,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>221.622</td>
     </tr>
     <tr>
-      <th>12</th>
       <td>time_signature</td>
       <td>3.919763</td>
       <td>1.655315e-01</td>
@@ -267,7 +253,6 @@ Below are summary statistics for all the features we plan to analyze:
       <td>5.000</td>
     </tr>
     <tr>
-      <th>13</th>
       <td>valence</td>
       <td>0.425801</td>
       <td>5.455384e-02</td>
