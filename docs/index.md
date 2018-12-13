@@ -7,8 +7,10 @@ nav_order: 1
 # Spotify You
 {: .no_toc }
 
-## Computer Science 109a: Group 46
-## Tejal Patwardhan, Akshitha Ramachandran, Grace Zhang
+Computer Science 109a: Group 46
+{: .no_toc }
+Tejal Patwardhan, Akshitha Ramachandran, Grace Zhang
+{: .no_toc }
 
 ## Table of contents
 {: .no_toc .text-delta }
