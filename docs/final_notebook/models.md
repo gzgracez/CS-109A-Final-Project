@@ -3,6 +3,14 @@ title: Models
 layout: default
 nav_order: 4
 ---
+# Models
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 # Baseline Logistic Classifier
 

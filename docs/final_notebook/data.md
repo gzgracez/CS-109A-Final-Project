@@ -3,7 +3,14 @@ title: Data Exploration
 layout: default
 nav_order: 3
 ---
+# Data Exploration
+{: .no_toc }
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 <!-- 
 <style>
 blockquote { background: #AEDE94; }
