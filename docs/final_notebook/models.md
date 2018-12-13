@@ -14,8 +14,35 @@ nav_order: 4
 
 ---
 
-# Baseline Logistic Classifier
+Our goal for this project is to construct a list of songs from a new list of songs that Grace would like to add to her existing playlist. We attempt to do this by training a variety of different models to predict whether or not a song should be included in Grace's playlist. By framiing the question in this way, we recognize that playlist construction can be considered from a classification perspective, where we need to classify each song in our test set as either being `in_playlist` or not `in_playlist`.
 
+# Setup
+
+We first split our data into a train and test set, so that we are later able to assess both how well our model performs in both a train set and a not-seen test set.
+
+```python
+train, test = train_test_split(spotify_df, test_size = 0.2, random_state=50)
+x_train, y_train = train.drop(columns=[response_col]), train[response_col].values
+x_test, y_test = test.drop(columns=[response_col]), test[response_col].values
+```
+
+# Baseline Model
+
+We began our project by first constructing a baseline model - one where we simply predict that all songs should be included in our existing playlist. This serves as a good source of comparison for our future models, which should at least do better than this trivial one.
+
+```python
+baseline_train_score = np.sum(y_train == 1) / len(train)
+baseline_test_score = np.sum(y_test == 1) / len(test)
+print('Baseline model (all songs are added to the existing playlist) train score:', baseline_train_score)
+print('Baseline model (all songs are added to the existing playlist) test score:', baseline_test_score)
+```
+
+We can see that our trivial model does not perform very well in either the train or test set, achieving 50.35% accuracy in the train set and 51.58% accuracy in the test set.
+
+
+# Naive Logistic Classifier
+
+Given our objective, we next considered simple, interpretable models that could help us classify our data. A clear option was the naive logistic model, which we fit on all 14 features of our training data. 
 
 ```python
 # set seed

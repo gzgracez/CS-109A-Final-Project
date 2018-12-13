@@ -195,11 +195,86 @@ These two playlists are linked below.</p>
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 <h2 id="spotify-api">Spotify API</h2>
-<p>We extracted our data from these playlists by using the Spotify API to create a .csv file of songs and their features. 
+
+<p>We then extracted our data from these playlists by using the Spotify API to create a .csv file of songs and their features. 
 We used the Spotify API’s <code class="highlighter-rouge">user_playlist_tracks</code> endpoint to collect track features, including <code class="highlighter-rouge">track_id</code>s, of the tracks in each of these playlists. 
 We then used the <code class="highlighter-rouge">audio_features</code> endpoint to get additional features like <code class="highlighter-rouge">danceability</code> for each of our tracks. 
 Finally, we added the <code class="highlighter-rouge">in_playlist</code> feature to each of our tracks, labeling them with a 1 if they were from the favorites playlist and a 0 indicating the not-so-favorites playlist.
-All of this data was written to a <code class="highlighter-rouge">spotify.csv</code> file.</p>
+All of this data was ultimately written to a <code class="highlighter-rouge">spotify.csv</code> file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">spotipy</span>
+<span class="kn">import</span> <span class="nn">spotipy.util</span> <span class="k">as</span> <span class="n">util</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+
+<span class="n">scope</span> <span class="o">=</span> <span class="s">'user-library-read'</span>
+<span class="n">LIMIT</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">PLAYLIST_1_LEN</span> <span class="o">=</span> <span class="mi">2660</span>
+<span class="n">PLAYLIST_0_LEN</span> <span class="o">=</span> <span class="mi">2492</span>
+
+<span class="k">def</span> <span class="nf">get_track_features_offset</span><span class="p">(</span><span class="n">playlist_id</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">in_playlist</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">user_playlist_tracks</span><span class="p">(</span>
+        <span class="s">'UroAv2poQoWSvUOfch8wmg'</span><span class="p">,</span> 
+        <span class="n">playlist_id</span><span class="o">=</span><span class="n">playlist_id</span><span class="p">,</span>
+        <span class="n">limit</span><span class="o">=</span><span class="n">LIMIT</span><span class="p">,</span>
+        <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">track_infos</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s">'items'</span><span class="p">]:</span>
+        <span class="n">track_infos</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s">'id'</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s">'track'</span><span class="p">][</span><span class="s">'id'</span><span class="p">],</span>
+            <span class="s">'name'</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s">'track'</span><span class="p">][</span><span class="s">'name'</span><span class="p">],</span>
+            <span class="s">'popularity'</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s">'track'</span><span class="p">][</span><span class="s">'popularity'</span><span class="p">],</span>
+            <span class="s">'artist'</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s">'track'</span><span class="p">][</span><span class="s">'artists'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">'name'</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s">'track'</span><span class="p">][</span><span class="s">'artists'</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="bp">None</span><span class="p">,</span>
+        <span class="p">})</span>
+    <span class="n">track_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="s">'id'</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">track_infos</span><span class="p">]</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">tracks_features</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">audio_features</span><span class="p">(</span><span class="n">track_ids</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">track</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tracks_features</span><span class="p">):</span>
+        <span class="n">track</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">track_infos</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s">'name'</span><span class="p">]</span>
+        <span class="n">track</span><span class="p">[</span><span class="s">'popularity'</span><span class="p">]</span> <span class="o">=</span> <span class="n">track_infos</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s">'popularity'</span><span class="p">]</span>
+        <span class="n">track</span><span class="p">[</span><span class="s">'artist'</span><span class="p">]</span> <span class="o">=</span> <span class="n">track_infos</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s">'artist'</span><span class="p">]</span>
+        <span class="n">track</span><span class="p">[</span><span class="s">'in_playlist'</span><span class="p">]</span> <span class="o">=</span> <span class="n">in_playlist</span>
+    <span class="k">return</span> <span class="n">tracks_features</span>
+
+<span class="k">def</span> <span class="nf">get_track_features</span><span class="p">(</span><span class="n">playlist_id</span><span class="p">,</span> <span class="n">num_iters</span><span class="p">,</span> <span class="n">in_playlist</span><span class="p">):</span>
+    <span class="n">track_features</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iters</span><span class="p">):</span>
+        <span class="n">track_features</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+            <span class="n">get_track_features_offset</span><span class="p">(</span><span class="n">playlist_id</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">LIMIT</span><span class="p">,</span> <span class="n">in_playlist</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">track_features</span>
+
+
+<span class="c"># Setup</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Usage: </span><span class="si">%</span><span class="s">s username"</span> <span class="o">%</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">()</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">prompt_for_user_token</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">scope</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">token</span><span class="p">:</span> 
+    <span class="k">print</span><span class="p">(</span><span class="s">"Can't get token for"</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+
+<span class="n">sp</span> <span class="o">=</span> <span class="n">spotipy</span><span class="o">.</span><span class="n">Spotify</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">token</span><span class="p">)</span>
+
+<span class="c"># Get track features</span>
+<span class="n">n_playlist0</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">PLAYLIST_0_LEN</span> <span class="o">/</span> <span class="n">LIMIT</span><span class="p">)</span>
+<span class="n">n_playlist1</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">PLAYLIST_1_LEN</span> <span class="o">/</span> <span class="n">LIMIT</span><span class="p">)</span>
+
+<span class="n">tracks_features0</span> <span class="o">=</span> <span class="n">get_track_features</span><span class="p">(</span><span class="s">'4B3qR5p6PD8nXXeq4C0Gz7'</span><span class="p">,</span> <span class="n">n_playlist0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">tracks_features1</span> <span class="o">=</span> <span class="n">get_track_features</span><span class="p">(</span><span class="s">'6Jpt5r9KD8FEUDioBFV0r0'</span><span class="p">,</span> <span class="n">n_playlist1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">tracks_features</span> <span class="o">=</span> <span class="n">tracks_features0</span> <span class="o">+</span> <span class="n">tracks_features1</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'spotify-more2.csv'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">tracks_features</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">())</span>
+</code></pre></div></div>
 
 <hr style="height:2pt" />
 
@@ -385,7 +460,7 @@ All of this data was written to a <code class="highlighter-rouge">spotify.csv</c
 <p>We can see that all features have values that are expected as per the Spotify API documentation. 
 To analyze each feature in more granularity we looked at density plots.</p>
 
-<p><img src="output_18_0.png" alt="png" /></p>
+<p><img src="/final_notebook/output_18_0.png" alt="png" /></p>
 
 <p>Looking at the density plots above, we note some features that show clear differences in distribution between the playlist and non-playlist. 
 While non-playlist songs contain a roughly uniform distribution of energy values, playlist songs spike at an energy level between 0.2-0.4.
@@ -398,9 +473,9 @@ Valence for non-playlist tracks is roughly uniformly distributed, while playlist
 Finally in terms of popularity, playlist tracks show a peak in their distribution around 60, while non-playlist tracks have a more variable distribution with a peak between 45-55.
 The rest of the features are roughly similar in distribution between playlist and non-playlist tracks.</p>
 
-<p><img src="output_20_1.png" alt="png" /></p>
+<p><img src="/final_notebook/output_20_1.png" alt="png" /></p>
 
-<p>The pairplot above demonstrates a few interesting things. First, we notice weakly positive correlations between loudness and energy, loudness and danceability, and danceablility and loudness. We also notice a negative correlation between acousticness and energy. The pairplot above demonstrates a few interesting things. First, we notice weakly positive correlations between loudness and energy, loudness and danceability, and danceablility and loudness. We also notice a negative correlation between acousticness and energy. These correlations will be useful to keep in mind if we conduct variable selection or regularization at a later point. Also, none of these pairwise plots show clear separability between the two playlists.</p>
+<p>The pairplot above demonstrates a few interesting things. First, we notice weakly positive correlations between loudness and energy, loudness and danceability, and danceablility and loudness. We also notice a negative correlation between acousticness and energy. These correlations will be useful to keep in mind if we conduct variable selection or regularization at a later point. Also, none of these pairwise plots show clear separability between the two playlists.</p>
 
 
 

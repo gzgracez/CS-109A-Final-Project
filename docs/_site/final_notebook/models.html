@@ -114,7 +114,9 @@
 <h2 class="no_toc text-delta" id="table-of-contents">Table of contents</h2>
 
 <ol id="markdown-toc">
-  <li><a href="#baseline-logistic-classifier" id="markdown-toc-baseline-logistic-classifier">Baseline Logistic Classifier</a></li>
+  <li><a href="#setup" id="markdown-toc-setup">Setup</a></li>
+  <li><a href="#baseline-model" id="markdown-toc-baseline-model">Baseline Model</a></li>
+  <li><a href="#naive-logistic-classifier" id="markdown-toc-naive-logistic-classifier">Naive Logistic Classifier</a></li>
   <li><a href="#logistic-classifier-with-quadratic-terms" id="markdown-toc-logistic-classifier-with-quadratic-terms">Logistic Classifier with Quadratic Terms</a></li>
   <li><a href="#l1-and-l2-regularization" id="markdown-toc-l1-and-l2-regularization">L1 and L2 Regularization</a></li>
   <li><a href="#knn" id="markdown-toc-knn">kNN</a></li>
@@ -129,7 +131,32 @@
 
 <hr />
 
-<h1 id="baseline-logistic-classifier">Baseline Logistic Classifier</h1>
+<p>Our goal for this project is to construct a list of songs from a new list of songs that Grace would like to add to her existing playlist. We attempt to do this by training a variety of different models to predict whether or not a song should be included in Grace’s playlist. By framiing the question in this way, we recognize that playlist construction can be considered from a classification perspective, where we need to classify each song in our test set as either being <code class="highlighter-rouge">in_playlist</code> or not <code class="highlighter-rouge">in_playlist</code>.</p>
+
+<h1 id="setup">Setup</h1>
+
+<p>We first split our data into a train and test set, so that we are later able to assess both how well our model performs in both a train set and a not-seen test set.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">spotify_df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">response_col</span><span class="p">]),</span> <span class="n">train</span><span class="p">[</span><span class="n">response_col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">response_col</span><span class="p">]),</span> <span class="n">test</span><span class="p">[</span><span class="n">response_col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</code></pre></div></div>
+
+<h1 id="baseline-model">Baseline Model</h1>
+
+<p>We began our project by first constructing a baseline model - one where we simply predict that all songs should be included in our existing playlist. This serves as a good source of comparison for our future models, which should at least do better than this trivial one.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">baseline_train_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">y_train</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+<span class="n">baseline_test_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">y_test</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Baseline model (all songs are added to the existing playlist) train score:'</span><span class="p">,</span> <span class="n">baseline_train_score</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Baseline model (all songs are added to the existing playlist) test score:'</span><span class="p">,</span> <span class="n">baseline_test_score</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>We can see that our trivial model does not perform very well in either the train or test set, achieving 50.35% accuracy in the train set and 51.58% accuracy in the test set.</p>
+
+<h1 id="naive-logistic-classifier">Naive Logistic Classifier</h1>
+
+<p>Given our objective, we next considered simple, interpretable models that could help us classify our data. A clear option was the naive logistic model, which we fit on all 14 features of our training data.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># set seed</span>
 <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -269,7 +296,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="output_34_0.png" alt="png" /></p>
+<p><img src="/final_notebook/output_34_0.png" alt="png" /></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># determine which k index has best test accuracy</span>
 <span class="n">k_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">acc_test</span><span class="p">)</span>
@@ -357,7 +384,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="output_43_0.png" alt="png" /></p>
+<p><img src="/final_notebook/output_43_0.png" alt="png" /></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># cross validation performance</span>
 <span class="n">train_score</span> <span class="o">=</span> <span class="n">means</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
@@ -524,22 +551,22 @@ Mean +/- 2 SD: ( 0.8649746226416641 , 0.8909557288057866 )
     <span class="k">print</span><span class="p">(</span><span class="n">boostingClassifier</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p><img src="output_60_0.png" alt="png" /></p>
+<p><img src="/final_notebook/output_60_0.png" alt="png" /></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maximum test accuracy for depth of 1 is 0.9150197628458498 at 773 iterations
 </code></pre></div></div>
 
-<p><img src="output_60_2.png" alt="png" /></p>
+<p><img src="/final_notebook/output_60_2.png" alt="png" /></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maximum test accuracy for depth of 2 is 0.9298418972332015 at 751 iterations
 </code></pre></div></div>
 
-<p><img src="output_60_4.png" alt="png" /></p>
+<p><img src="/final_notebook/output_60_4.png" alt="png" /></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maximum test accuracy for depth of 3 is 0.9268774703557312 at 500 iterations
 </code></pre></div></div>
 
-<p><img src="output_60_6.png" alt="png" /></p>
+<p><img src="/final_notebook/output_60_6.png" alt="png" /></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maximum test accuracy for depth of 4 is 0.9219367588932806 at 530 iterations
 </code></pre></div></div>
