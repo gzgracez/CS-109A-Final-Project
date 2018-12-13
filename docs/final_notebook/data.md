@@ -1,5 +1,5 @@
 ---
-title: Data
+title: Data Exploration
 layout: default
 nav_order: 3
 ---
