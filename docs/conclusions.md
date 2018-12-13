@@ -1,17 +1,30 @@
 ---
 title: Conclusions
 layout: default
-nav_order: 4
+nav_order: 5
+---
+
+# Conclusions
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 ---
 
 # Results
-Our best model performs with an accuracy of 95.4% in the training set, and 93.0% in the test set.
+Our best model is the boosted decision tree classifier with a depth of 2 and 751 iterations, 
+which performs with an accuracy of 95.4% in the training set and 93.0% in the test set.
+
 The following table summarizes the accuracies for all our models, ordered by accuracy in the test set:
 
 |                 Model Type                 | Train Accuracy      | Test Accuracy      |
 |--------------------------------------------|:-------------------:|:------------------:|
 |  Logistic Regression With Quadratic Terms  |       49.7%         |       48.4%        |
-|                 Neural Network             |       50.5%         |       51.6%        |
+|                 Neural Network             |       62.8%         |       65.2%        |
 |                     kNN                    |       63.1%         |       65.9%        |
 | Logistic Regression With L2 Regularization |       69.2%         |       66.9%        |
 |        Baseline Logistic Regression        |       69.4%         |       67.1%        |
@@ -24,11 +37,17 @@ The following table summarizes the accuracies for all our models, ordered by acc
 |       Boosted Decision Tree Classifier     |       95.4%         |       93.0%        |
 
 Our lowest performing models include the logistic regression with quadratic terms, the neural network, and the kNN model, all of which perform worse than the baseline.
-Our best performing models were all ensemble methods with the decision tree, with the boosted decision tree classifier, the random forest model, and the decision tree classifier with bagging performing best.
+Our best performing models were all ensemble methods. 
+The boosted decision tree classifier, the random forest model, and the decision tree classifier with bagging performed best.
+We tuned the parameters and hyperparameters of each base model to maximize the accuracy score of each, 
+which leads us to believe that we achieved the maximum possible classification accuracy given the constraints of our dataset.
 
 ## Future Work
-# Data Inclusion
+# Data Size
 We generated a dataset by consolidating a large array of songs that vary in genre, language, tempo, rhythm, etc. We tried to curate a dataset that mimicked the variety of songs that Spotify has. Grace then had to go through these songs and classify whether she would like them in her playlist or not. Due to a multitude of constraints, we only had 5000 songs between both and training and test data. Ideally more songs that accurately capture the variety of songs that Spotify has would improve the training procedures for models.
+
+# Data Inclusion
+Outside of the side of the data set, there are other data sets that can be used discover new predictors or variables about songs. We can explore lyrics for example and see how that contributes to a model's recommendations. Thus requires us expanding beyond the SpotifyAPI and exploring other data sets.
 
 # Adapting Playlists 
 This entire project was built off of the preferences of one individual - Grace. While this proved to be a good proof of concept, future exploration should be done to analyze how the best model can help create playlists for others based upon their interests. 
@@ -38,3 +57,4 @@ Finally collaborative filtering is another type of data modeling that is commonl
 
 # Improve Neural Network
 There are many hyperparameters that can be tuned when configuring neural networks. Additionally, the number of epochs they run for along with the number of predictors are all factors that influence the accuracy and effectiveness of these networks. As such playing around with these variables would improve the model.
+

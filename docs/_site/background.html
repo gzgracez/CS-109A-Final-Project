@@ -69,6 +69,16 @@
         
           <li class="navigation-list-item">
             
+            <a href="http://localhost:4000/conclusions.html" class="navigation-list-link">Conclusions</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
             <a href="http://localhost:4000/final_notebook/final_notebook.html" class="navigation-list-link">CS109-Final Notebook</a>
             
           </li>
@@ -119,26 +129,67 @@
           
         
         <div class="page-content">
-          <h2 id="motivation">Motivation</h2>
+          <h1 class="no_toc" id="background">Background</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#motivation" id="markdown-toc-motivation">Motivation</a></li>
+  <li><a href="#playlists" id="markdown-toc-playlists">Playlists</a></li>
+  <li><a href="#approach" id="markdown-toc-approach">Approach</a></li>
+  <li><a href="#literature-review" id="markdown-toc-literature-review">Literature Review</a></li>
+</ol>
+
+<hr />
+
+<h1 id="motivation">Motivation</h1>
 
 <p>Spotify is a popular music streaming platform that allows users to curate their own playlists. 
 Music recommender systems help users find songs based on what they might like. 
-We wanted to help Grace curate a Spotify playlist of her favorite songs using the classification techniques we had learned in class.
-Grace struggles to classify with words what makes a song fit into her vibe. “I’d jam to Madison Thompson’s ‘Lonely Together,’ but definitely not to Avicii’s.”
+We wanted to help Grace curate a Spotify playlist of her favorite songs using the classification techniques we learned in class.
+Grace struggles to classify with words what makes a song fit into her vibe. 
+“I’d jam to Madison Thompson’s ‘Lonely Together,’ but definitely not to Avicii’s.”
 When words fail, data science might help. 
-We decided to solve the problem of finding the best classification model for Grace’s playlist, 
-and then use that model to find her more songs for her playlist.
-The Spotify API allows us to download playlists with feature data for each song in the playlist.
-We asked Grace to label a set of songs as included in her playlist and another set of songs as songs she would not want to listen to.
-We then constructed and analyzed classification models based on this data.</p>
+We decided to use techniques from Cs109a to solve the problem of finding the best classification model for Grace’s playlist, 
+and then use that model to find her more songs for her playlist.</p>
 
-<h2 id="playlists">Playlists</h2>
-<h3 id="graces-favorites-playlist">Grace’s Favorites Playlist</h3>
+<p>We had three goals:</p>
+<ol>
+  <li>to create the best performing model to classify songs as in or out of Grace’s playlist</li>
+  <li>to use that model to suggest new songs for Grace’s playlist</li>
+  <li>to produce a sleek interface using <i>jekyll</i> to display our analysis, so that others can replicate our method on their playlists</li>
+</ol>
+
+<h1 id="playlists">Playlists</h1>
+<h2 class="no_toc" id="graces-favorites-playlist">Grace’s Favorites Playlist</h2>
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/6Jpt5r9KD8FEUDioBFV0r0" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<h3 id="graces-not-so-favorites-playlist">Grace’s Not-So-Favorites Playlist</h3>
+<h2 class="no_toc" id="graces-not-so-favorites-playlist">Grace’s Not-So-Favorites Playlist</h2>
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-<h2 id="literature-review">Literature Review</h2>
+<h1 id="approach">Approach</h1>
+<p>First, we asked Grace to label a set of songs as included in her playlist and another set of songs as songs she would not want to listen to.
+We used Spotify API to download her playlists with feature data for each song in the playlist.
+We then randomly split this data into a training and test set. 
+Next, we built and fit a variety of classifiers for Grace’s playlist on the training set. Models we built include:</p>
+<ul>
+  <li>Logistic Regression</li>
+  <li>Logistic Regression With Quadratic Terms</li>
+  <li>Logistic Regression With L1 Regularization</li>
+  <li>Logistic Regression With L2 Regularization</li>
+  <li>k-Nearest Neighbors</li>
+  <li>Linear Discriminant Analysis</li>
+  <li>Quadratic Discriminant Analysis</li>
+  <li>Decision Tree Classifier</li>
+  <li>Random Forest</li>
+  <li>Decision Tree Classifier with Bagging</li>
+  <li>Decision Tree Classifier with Boosting</li>
+  <li>Artificial Neural Network
+For each model, we evaluated its accuracy on both our training and and test set. 
+Based on accuracy scores, we determined the classifier with the highest performance on the test set. 
+Finally, we ran our best-performing model on a fresh set of songs and asked Grace if she liked her new playlist!</li>
+</ul>
+
+<h1 id="literature-review">Literature Review</h1>
 <p><a href="https://arxiv.org/pdf/1710.03208.pdf">Current Challenges and Visions in Music Recommender Systems Research</a></p>
 <ul>
   <li>Biggest current issues in MRS: cold start, automatic playlist generation, and evaluation.</li>
@@ -168,7 +219,7 @@ We then constructed and analyzed classification models based on this data.</p>
 
 <p><a href="people.tamu.edu/~zhaoxing623/publications/XZ_TrailMix.pdf">TrailMix: An Ensemble Recommender System for Playlist Curation and Continuation</a></p>
 <ul>
-  <li>RecSys feature TrailMix compared 3 recommender models:
+  <li>Successful RecSys project TrailMix compared 3 recommender models:
     <ul>
       <li>song clustering purely based on title</li>
       <li>decorated neural collaborative filtering</li>
@@ -182,6 +233,16 @@ We then constructed and analyzed classification models based on this data.</p>
   </li>
   <li>An ensemble of all three models performed best</li>
 </ul>
+
+<p><a href="http://openaccess.city.ac.uk/6344/3/VLHCC2013.pdf">Ways Explanations Impact End Users’ Mental Models</a></p>
+<ul>
+  <li>This paper explored the explanations of music song recommenders to users</li>
+  <li>Part of enabling users to debug their models is explaining these agents to users well enough for them to build useful mental models</li>
+  <li>A kNN and bagged decision tree ensemble model was used to recommend songs</li>
+  <li>Completeness of explanations were more important than soundness in understanding models (ie–explaining everything as opposed to explaining only a part but explaining that part fully correctly)</li>
+  <li>They found that in general, comprehensive explanations were more useful than simple ones</li>
+</ul>
+
 
 
           

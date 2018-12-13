@@ -4,6 +4,17 @@ layout: default
 nav_order: 2
 ---
 
+# Background
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 # Motivation
 
 Spotify is a popular music streaming platform that allows users to curate their own playlists. 
@@ -23,8 +34,10 @@ We had three goals:
 
 # Playlists
 ## Grace's Favorites Playlist
+{: .no_toc }
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/6Jpt5r9KD8FEUDioBFV0r0" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 ## Grace's Not-So-Favorites Playlist
+{: .no_toc }
 <iframe src="https://open.spotify.com/embed/user/gzgracez2/playlist/4B3qR5p6PD8nXXeq4C0Gz7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 # Approach
@@ -44,6 +57,7 @@ Next, we built and fit a variety of classifiers for Grace's playlist on the trai
 - Decision Tree Classifier with Bagging
 - Decision Tree Classifier with Boosting
 - Artificial Neural Network
+
 For each model, we evaluated its accuracy on both our training and and test set. 
 Based on accuracy scores, we determined the classifier with the highest performance on the test set. 
 Finally, we ran our best-performing model on a fresh set of songs and asked Grace if she liked her new playlist!

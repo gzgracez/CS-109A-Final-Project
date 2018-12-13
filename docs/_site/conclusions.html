@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <title>Conclusions - Spotify You</title>
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/just-the-docs.css">
+  
+  <script type="text/javascript" src="http://localhost:4000/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="http://localhost:4000/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+  <div class="page-wrap">
+    <div class="side-bar">
+      <a href="http://localhost:4000" class="site-title fs-6 lh-tight">Spotify You</a>
+      <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
+      <div class="navigation main-nav js-main-nav">
+        <nav>
+  <ul class="navigation-list">
+    
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://localhost:4000/" class="navigation-list-link">Home</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://localhost:4000/background.html" class="navigation-list-link">Background</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://localhost:4000/data-collection.html" class="navigation-list-link">Data Collection</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://localhost:4000/eda.html" class="navigation-list-link">Exploratory Data Analysis</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item active">
+            
+            <a href="http://localhost:4000/conclusions.html" class="navigation-list-link active">Conclusions</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://localhost:4000/final_notebook/final_notebook.html" class="navigation-list-link">CS109-Final Notebook</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://localhost:4000/million-playlist-README.html" class="navigation-list-link">Million Playlist Dataset</a>
+            
+          </li>
+        
+      
+    
+  </ul>
+</nav>
+
+      </div>
+      <footer role="contentinfo" class="site-footer">
+        <p class="text-small text-grey-dk-000 mb-0">This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</p>
+      </footer>
+    </div>
+    <div class="main-content-wrap">
+      <div class="page-header">
+        <div class="main-content">
+          
+          <div class="search js-search">
+            <div class="search-input-wrap">
+              <input type="text" class="js-search-input search-input" placeholder="Search Spotify You" aria-label="Search Spotify You" autocomplete="off">
+              <svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" class="search-icon"><title>Search</title><g fill-rule="nonzero"><path d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z"/><path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z"/></g></svg>
+            </div>
+            <div class="js-search-results search-results-wrap"></div>
+          </div>
+          
+          
+            <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+              
+                <li class="d-inline-block my-0"><a href="//github.com/gzgracez/CS-109A-Final-Project">Spotify You on GitHub</a></li>
+              
+            </ul>
+          
+        </div>
+      </div>
+      <div class="main-content">
+        
+          
+        
+        <div class="page-content">
+          <h1 class="no_toc" id="conclusions">Conclusions</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#results" id="markdown-toc-results">Results</a>    <ol>
+      <li><a href="#future-work" id="markdown-toc-future-work">Future Work</a></li>
+    </ol>
+  </li>
+  <li><a href="#data-inclusion" id="markdown-toc-data-inclusion">Data Inclusion</a></li>
+  <li><a href="#million-playlist-dataset" id="markdown-toc-million-playlist-dataset">Million playlist dataset</a></li>
+  <li><a href="#collaborative-filtering" id="markdown-toc-collaborative-filtering">Collaborative Filtering</a></li>
+  <li><a href="#improve-neural-network" id="markdown-toc-improve-neural-network">Improve Neural Network</a></li>
+  <li><a href="#other-playlists" id="markdown-toc-other-playlists">Other Playlists</a></li>
+</ol>
+
+<hr />
+
+<h1 id="results">Results</h1>
+<p>Our best model is the boosted decision tree classifier with a depth of 2 and 751 iterations, 
+which performs with an accuracy of 95.4% in the training set and 93.0% in the test set.</p>
+
+<p>The following table summarizes the accuracies for all our models, ordered by accuracy in the test set:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model Type</th>
+      <th style="text-align: center">Train Accuracy</th>
+      <th style="text-align: center">Test Accuracy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Logistic Regression With Quadratic Terms</td>
+      <td style="text-align: center">49.7%</td>
+      <td style="text-align: center">48.4%</td>
+    </tr>
+    <tr>
+      <td>Neural Network</td>
+      <td style="text-align: center">62.8%</td>
+      <td style="text-align: center">65.2%</td>
+    </tr>
+    <tr>
+      <td>kNN</td>
+      <td style="text-align: center">63.1%</td>
+      <td style="text-align: center">65.9%</td>
+    </tr>
+    <tr>
+      <td>Logistic Regression With L2 Regularization</td>
+      <td style="text-align: center">69.2%</td>
+      <td style="text-align: center">66.9%</td>
+    </tr>
+    <tr>
+      <td>Baseline Logistic Regression</td>
+      <td style="text-align: center">69.4%</td>
+      <td style="text-align: center">67.1%</td>
+    </tr>
+    <tr>
+      <td>QDA</td>
+      <td style="text-align: center">86.6%</td>
+      <td style="text-align: center">86.7%</td>
+    </tr>
+    <tr>
+      <td>LDA</td>
+      <td style="text-align: center">88.1%</td>
+      <td style="text-align: center">88.4%</td>
+    </tr>
+    <tr>
+      <td>Logistic Regression With L1 Regularization</td>
+      <td style="text-align: center">88.6%</td>
+      <td style="text-align: center">88.7%</td>
+    </tr>
+    <tr>
+      <td>Decision Tree Classifier</td>
+      <td style="text-align: center">88.0%</td>
+      <td style="text-align: center">89.0%</td>
+    </tr>
+    <tr>
+      <td>Decision Tree Classifier With Bagging</td>
+      <td style="text-align: center">93.6%</td>
+      <td style="text-align: center">91.8%</td>
+    </tr>
+    <tr>
+      <td>Random Forest</td>
+      <td style="text-align: center">92.9%</td>
+      <td style="text-align: center">92.0%</td>
+    </tr>
+    <tr>
+      <td>Boosted Decision Tree Classifier</td>
+      <td style="text-align: center">95.4%</td>
+      <td style="text-align: center">93.0%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Our lowest performing models include the logistic regression with quadratic terms, the neural network, and the kNN model, all of which perform worse than the baseline.
+Our best performing models were all ensemble methods. 
+The boosted decision tree classifier, the random forest model, and the decision tree classifier with bagging performed best.
+We tuned the parameters and hyperparameters of each base model to maximize the accuracy score of each, 
+which leads us to believe that we achieved the maximum possible classification accuracy given the constraints of our dataset.</p>
+
+<h2 id="future-work">Future Work</h2>
+<h1 id="data-inclusion">Data Inclusion</h1>
+<p>We generated a dataset of songs for Grace to classify by downloading her “favorites” and “unfavorites” playlists on Spotify. 
+In the future, increasing the size of the dataset will be useful.</p>
+<h1 id="million-playlist-dataset">Million playlist dataset</h1>
+<h1 id="collaborative-filtering">Collaborative Filtering</h1>
+<h1 id="improve-neural-network">Improve Neural Network</h1>
+<h1 id="other-playlists">Other Playlists</h1>
+<p>In the future, we can repeat this analysis on the playlists of others to find the best performing model.</p>
+
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
