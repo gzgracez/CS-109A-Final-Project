@@ -25,8 +25,8 @@ We used this model to classify a fresh set of songs for Grace, and she loved lis
 
 # Website Navigation
 Our motivations for the project as well as our literature review can be found on the [background](background.html) page. 
-A description of the data as well as our exploratory data analysis can be found on the [data](final\_notebook/data.html) page.
-Our models can be found on the [models](final\_notebook/models.html) page. 
+A description of the data as well as our exploratory data analysis can be found on the [data](final_notebook/data.html) page.
+Our models can be found on the [models](final_notebook/models.html) page. 
 Our results, analysis, conclusions, and suggestions for moving forward can be found on the [conclusions](conclusions.html) page.
 
 # About Us
