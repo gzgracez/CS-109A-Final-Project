@@ -14,7 +14,7 @@ nav_order: 4
 
 ---
 
-Our goal for this project is to construct a list of songs from a new list of songs that Grace would like to add to her existing playlist. We attempt to do this by training a variety of different models to predict whether or not a song should be included in Grace's playlist. By framiing the question in this way, we recognize that playlist construction can be considered from a classification perspective, where we need to classify each song in our test set as either being `in_playlist` or not `in_playlist`.
+Our goal for this project is to construct a list of songs from a new list of songs that Grace would like to add to her existing playlist. We attempt to do this by training a variety of different models to predict whether or not a song should be included in Grace's playlist. By framing the question in this way, we recognize that playlist construction can be considered from a classification perspective, where we need to classify each song in our test set as either being `in_playlist` or not `in_playlist`.
 
 # Setup
 
