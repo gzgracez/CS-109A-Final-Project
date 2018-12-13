@@ -18,7 +18,7 @@ Our goal for this project is to construct a list of songs from a new list of son
 
 # Setup
 
-We first split our data into a train and test set, so that we are later able to assess both how well our model performs in both a train set and a not-seen test set.
+We first split our data into a train and test set, so that we are later able to assess how well our model performs in both a train set and a not-seen test set.
 
 ```python
 train, test = train_test_split(spotify_df, test_size = 0.2, random_state=50)
