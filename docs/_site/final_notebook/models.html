@@ -152,6 +152,10 @@
 <span class="k">print</span><span class="p">(</span><span class="s">'Baseline model (all songs are added to the existing playlist) test score:'</span><span class="p">,</span> <span class="n">baseline_test_score</span><span class="p">)</span>
 </code></pre></div></div>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Baseline model (all songs are added to the existing playlist) train score: 0.5034584980237155
+Baseline model (all songs are added to the existing playlist) test score: 0.5158102766798419
+</code></pre></div></div>
+
 <p>We can see that our trivial model does not perform very well in either the train or test set, achieving 50.35% accuracy in the train set and 51.58% accuracy in the test set.</p>
 
 <h1 id="naive-logistic-classifier">Naive Logistic Classifier</h1>
@@ -187,9 +191,11 @@
 [Logistic Regression] Classification accuracy for test set: 0.6709486166007905
 </code></pre></div></div>
 
-<p>Our baseline logistic model is able to achieve an accuracy of roughly 69.4% in the training set, and 67.1% in the test set.</p>
+<p>Our baseline logistic model is able to achieve an accuracy of roughly 69.4% in the training set, and 67.1% in the test set. We can see that this is already better than our trivial baseline model, which is a great sign! However, we believe we can build an even better predictive model.</p>
 
 <h1 id="logistic-classifier-with-quadratic-terms">Logistic Classifier with Quadratic Terms</h1>
+
+<p>Our next appraoch was to consider a logistic regression model that includes quadratic terms as well as main effect terms, in an attempt to capture any polynomial relationships that may exist between our features and whether or not a particular song should be included in our playlist.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># add quadratic terms</span>
 <span class="n">x_train_q</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -223,14 +229,15 @@
 [Logistic Regression With Quadratic Terms] Classification accuracy for test set: 0.4841897233201581
 </code></pre></div></div>
 
-<p>When trying to add quadratic terms, we see that the model performs worse. The test and training accuracies are both low at roughly 48.4% and 49.7%.</p>
+<p>However, after adding quadratic terms to our model, we see that the model performs worse. The test and training accuracies are both quite low at roughly 48.4% and 49.7%.</p>
 
 <h1 id="l1-and-l2-regularization">L1 and L2 Regularization</h1>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">alphas</span> <span class="o">=</span> <span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<p>Given our low scores on our logistic regression model with quadratic terms, we consider adding regularization to our model to make sure that we are not overfitting to our training data. We consider both L1 and L2 regularization.</p>
 
-<span class="c"># L1 regularization</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># L1 regularization</span>
 <span class="n">lr_l1_model</span> <span class="o">=</span> <span class="n">LogisticRegressionCV</span><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s">'l1'</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s">'liblinear'</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="c"># L2 regularization</span>
 <span class="n">lr_l2_model</span> <span class="o">=</span> <span class="n">LogisticRegressionCV</span><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </code></pre></div></div>
 
@@ -253,9 +260,11 @@
 [L2 Reg] Classification accuracy for test set: 0.6699604743083004
 </code></pre></div></div>
 
-<p>L1 regularization performs much better than L2. The L1 regularized model achieves about 88.8% accuracy in the training data and about 88.9% in the test, well outperforming our baseline model. The L2 regularized model performs on par with our baseline, achieving a training accuracy of around 69.2% and a test accuracy of 66.9%.</p>
+<p>We can see that L1 regularization performs much better than L2. The L1 regularized model achieves about 88.8% accuracy in the training data and about 88.9% in the test, well outperforming our baseline model. The L2 regularized model performs on par with our baseline, achieving a training accuracy of around 69.2% and a test accuracy of 66.9%.</p>
 
 <h1 id="knn">kNN</h1>
+
+<p>We next decided to try a different classification approach, specifically, the k-nearest neighbors model.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># make kNN preds binary</span>
 <span class="k">def</span> <span class="nf">parsenKKRes</span><span class="p">(</span><span class="n">predictions</span><span class="p">):</span>
@@ -296,17 +305,11 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="/final_notebook/output_34_0.png" alt="png" /></p>
+<p><img src="output_38_0.png" alt="png" /></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># determine which k index has best test accuracy</span>
 <span class="n">k_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">acc_test</span><span class="p">)</span>
-<span class="n">k_index</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>81
-</code></pre></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"[kNN] Classification accuracy for training set: "</span><span class="p">,</span> <span class="n">acc_train</span><span class="p">[</span><span class="n">k_index</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"[kNN] Classification accuracy for training set: "</span><span class="p">,</span> <span class="n">acc_train</span><span class="p">[</span><span class="n">k_index</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="s">"[kNN] Classification accuracy for test set: "</span><span class="p">,</span> <span class="n">acc_test</span><span class="p">[</span><span class="n">k_index</span><span class="p">])</span>
 </code></pre></div></div>
 

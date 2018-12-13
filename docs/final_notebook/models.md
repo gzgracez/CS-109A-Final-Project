@@ -37,7 +37,10 @@ print('Baseline model (all songs are added to the existing playlist) train score
 print('Baseline model (all songs are added to the existing playlist) test score:', baseline_test_score)
 ```
 
-We can see that our trivial model does not perform very well in either the train or test set, achieving 50.35% accuracy in the train set and 51.58% accuracy in the test set.
+    Baseline model (all songs are added to the existing playlist) train score: 0.5034584980237155
+    Baseline model (all songs are added to the existing playlist) test score: 0.5158102766798419
+
+We can see that our trivial model does not perform very well in either the train or test set, achieving 50.35% accuracy in the train set and 51.58% accuracy in the test set. 
 
 
 # Naive Logistic Classifier
@@ -74,9 +77,12 @@ print('[Logistic Regression] Classification accuracy for test set: {}'.format(lo
     [Logistic Regression] Classification accuracy for test set: 0.6709486166007905
 
 
-Our baseline logistic model is able to achieve an accuracy of roughly 69.4% in the training set, and 67.1% in the test set. 
+Our baseline logistic model is able to achieve an accuracy of roughly 69.4% in the training set, and 67.1% in the test set. We can see that this is already better than our trivial baseline model, which is a great sign! However, we believe we can build an even better predictive model.
+
 
 # Logistic Classifier with Quadratic Terms
+
+Our next appraoch was to consider a logistic regression model that includes quadratic terms as well as main effect terms, in an attempt to capture any polynomial relationships that may exist between our features and whether or not a particular song should be included in our playlist.
 
 
 ```python
@@ -112,16 +118,18 @@ print('[Logistic Regression With Quadratic Terms] Classification accuracy for te
     [Logistic Regression With Quadratic Terms] Classification accuracy for test set: 0.4841897233201581
 
 
-When trying to add quadratic terms, we see that the model performs worse. The test and training accuracies are both low at roughly 48.4% and 49.7%.
+However, after adding quadratic terms to our model, we see that the model performs worse. The test and training accuracies are both quite low at roughly 48.4% and 49.7%.
+
 
 # L1 and L2 Regularization
 
+Given our low scores on our logistic regression model with quadratic terms, we consider adding regularization to our model to make sure that we are not overfitting to our training data. We consider both L1 and L2 regularization. 
+
 
 ```python
-alphas = (.1,.5,1,5,10,50,100)
-
 # L1 regularization
 lr_l1_model = LogisticRegressionCV(cv=5, penalty='l1', solver='liblinear', max_iter=100000).fit(x_train, y_train)
+# L2 regularization
 lr_l2_model = LogisticRegressionCV(cv=5, max_iter=100000).fit(x_train, y_train)
 ```
 
@@ -146,9 +154,11 @@ l2_stats = get_lr_cv(lr_l2_model, 'L2 Reg')
     [L2 Reg] Classification accuracy for test set: 0.6699604743083004
 
 
-L1 regularization performs much better than L2. The L1 regularized model achieves about 88.8% accuracy in the training data and about 88.9% in the test, well outperforming our baseline model. The L2 regularized model performs on par with our baseline, achieving a training accuracy of around 69.2% and a test accuracy of 66.9%.
+We can see that L1 regularization performs much better than L2. The L1 regularized model achieves about 88.8% accuracy in the training data and about 88.9% in the test, well outperforming our baseline model. The L2 regularized model performs on par with our baseline, achieving a training accuracy of around 69.2% and a test accuracy of 66.9%.
 
 # kNN
+
+We next decided to try a different classification approach, specifically, the k-nearest neighbors model.
 
 
 ```python
@@ -194,25 +204,13 @@ plt.show()
 ```
 
 
-![png](output_34_0.png)
+![png](output_38_0.png)
 
 
 
 ```python
 # determine which k index has best test accuracy
 k_index = np.argmax(acc_test)
-k_index
-```
-
-
-
-
-    81
-
-
-
-
-```python
 print("[kNN] Classification accuracy for training set: ", acc_train[k_index])
 print("[kNN] Classification accuracy for test set: ", acc_test[k_index])
 ```
