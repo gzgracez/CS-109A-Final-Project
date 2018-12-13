@@ -36,6 +36,7 @@ First, we asked Grace to label a set of songs as included in her playlist and an
 We used Spotify API to download her playlists with feature data for each song in the playlist.
 We then randomly split this data into a training and test set. 
 Next, we built and fit a variety of classifiers for Grace's playlist on the training set. Models we built include:
+- Naive Model
 - Logistic Regression
 - Logistic Regression With Quadratic Terms
 - Logistic Regression With L1 Regularization
