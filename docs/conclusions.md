@@ -43,11 +43,11 @@ We tuned the parameters and hyperparameters of each base model to maximize the a
 which leads us to believe that we achieved the maximum possible classification accuracy given the constraints of our dataset.
 
 ## Future Work
-# Data Inclusion
+### Data Inclusion
 We generated a dataset of songs for Grace to classify by downloading her "favorites" and "unfavorites" playlists on Spotify. 
 In the future, increasing the size of the dataset will be useful.
-# Million playlist dataset
-# Collaborative Filtering
-# Improve Neural Network
-# Other Playlists
+### Million playlist dataset
+### Collaborative Filtering
+### Improve Neural Network
+### Other Playlists
 In the future, we can repeat this analysis on the playlists of others to find the best performing model.
