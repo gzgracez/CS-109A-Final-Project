@@ -18,7 +18,7 @@ Our models can be found on the models page.
 Our results, analysis, conclusions, and suggestions for moving forward can be found on the [conclusions](conclusions.html) page.
 
 # About Us
-We are Tejal Patwardhan, Akshitha Ramachandran, and Grace Zhang, Group 49 for Cs109a. 
+We are Tejal Patwardhan, Akshitha Ramachandran, and Grace Zhang, Group 49 for CS109A. 
 Special thanks to Pavlos Protopapas, Kevin Rader, and Rashmi Banthia for their assistance.
 
 ![alt text](spotify_icon.png "Logo Title Text 1")
