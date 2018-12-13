@@ -15,7 +15,7 @@ nav_order: 5
 
 ---
 
-# Results
+# Analysis of Results
 Our best model is the boosted decision tree classifier with a depth of 2 and 751 iterations, 
 which performs with an accuracy of 95.4% in the training set and 93.0% in the test set.
 
@@ -42,7 +42,7 @@ The boosted decision tree classifier, the random forest model, and the decision 
 We tuned the parameters and hyperparameters of each base model to maximize the accuracy score of each, 
 which leads us to believe that we achieved the maximum possible classification accuracy given the constraints of our dataset.
 
-## Future Work
+# Future Work
 ### Data Size
 {: .no_toc }
 We generated a dataset by consolidating a large array of songs that vary in genre, language, tempo, rhythm, etc. We tried to curate a dataset that mimicked the variety of songs that Spotify has. Grace then had to go through these songs and classify whether she would like them in her playlist or not. Due to a multitude of constraints, we only had 5000 songs between both and training and test data. Ideally more songs that accurately capture the variety of songs that Spotify has would improve the training procedures for models.
