@@ -3,6 +3,18 @@ title: Home
 layout: default
 nav_order: 1
 ---
+
+# Spotify You (CS 109A: Group 49)
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 # Overview
 
 For our final project, we created a best-performing model to help classify songs for Grace's playlist. 
@@ -21,4 +33,5 @@ Our results, analysis, conclusions, and suggestions for moving forward can be fo
 We are Tejal Patwardhan, Akshitha Ramachandran, and Grace Zhang, Group 49 for CS109A. 
 Special thanks to Pavlos Protopapas, Kevin Rader, and Rashmi Banthia for their assistance.
 
-![alt text](spotify_icon.png "Logo Title Text 1")
+<img src="spotify_icon.png" width="40%">
+<!-- ![alt text](spotify_icon.png "Logo Title Text 1"){ width=50% } -->

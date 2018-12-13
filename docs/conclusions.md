@@ -4,6 +4,17 @@ layout: default
 nav_order: 4
 ---
 
+# Conclusions
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 # Results
 Our best model is the boosted decision tree classifier with a depth of 2 and 751 iterations, 
 which performs with an accuracy of 95.4% in the training set and 93.0% in the test set.
