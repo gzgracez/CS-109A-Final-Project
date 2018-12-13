@@ -42,9 +42,9 @@ The boosted decision tree classifier, the random forest model, and the decision 
 We tuned the parameters and hyperparameters of each base model to maximize the accuracy score of each, 
 which leads us to believe that we achieved the maximum possible classification accuracy given the constraints of our dataset.
 
-Finally, while usually time and space are usually considerations when evaluating different types of models, 
-that was measured for this project because it wasn't a constraint. 
-However, a qualitative assessment of these metrics determined that all models were comparable with the exception of the neural nets that took additional time.
+Finally, while usually time and space are considerations when evaluating different types of models, 
+because they do not constrain our original problem, we chose to focus on accuracy. 
+However, a qualitative assessment of these metrics determined that all models were comparable in terms of runtime and memory use with the exception of the neural nets that took additional time.
 
 ---
 
