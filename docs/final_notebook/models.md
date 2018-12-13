@@ -4,65 +4,6 @@ layout: default
 nav_order: 4
 ---
 
-<!-- 
-<style>
-blockquote { background: #AEDE94; }
-h1 { 
-    padding-top: 25px;
-    padding-bottom: 25px;
-    text-align: left; 
-    padding-left: 10px;
-    background-color: #DDDDDD; 
-    color: black;
-}
-h2 { 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: left; 
-    padding-left: 5px;
-    background-color: #EEEEEE; 
-    color: black;
-}
-
-div.exercise {
-	background-color: #ffcccc;
-	border-color: #E9967A; 	
-	border-left: 5px solid #800080; 
-	padding: 0.5em;
-}
-div.theme {
-	background-color: #DDDDDD;
-	border-color: #E9967A; 	
-	border-left: 5px solid #800080; 
-	padding: 0.5em;
-	font-size: 18pt;
-}
-div.gc { 
-	background-color: #AEDE94;
-	border-color: #E9967A; 	 
-	border-left: 5px solid #800080; 
-	padding: 0.5em;
-	font-size: 12pt;
-}
-p.q1 { 
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: left; 
-    padding-left: 5px;
-    background-color: #EEEEEE; 
-    color: black;
-}
-header {
-   padding-top: 35px;
-    padding-bottom: 35px;
-    text-align: left; 
-    padding-left: 10px;
-    background-color: #DDDDDD; 
-    color: black;
-}
-</style>
- -->
-
 # Baseline Logistic Classifier
 
 
@@ -96,9 +37,9 @@ print('[Logistic Regression] Classification accuracy for test set: {}'.format(lo
     [Logistic Regression] Classification accuracy for test set: 0.6709486166007905
 
 
-Our baseline logistic model is able to achieve an accuracy of roughly 69.4% in the training set, and 67.1% in the test set.
+Our baseline logistic model is able to achieve an accuracy of roughly 69.4% in the training set, and 67.1% in the test set. 
 
-# Add Quadratic Terms
+# Logistic Classifier with Quadratic Terms
 
 
 ```python
@@ -136,7 +77,7 @@ print('[Logistic Regression With Quadratic Terms] Classification accuracy for te
 
 When trying to add quadratic terms, we see that the model performs worse. The test and training accuracies are both low at roughly 48.4% and 49.7%.
 
-# Regularization
+# L1 and L2 Regularization
 
 
 ```python
@@ -162,13 +103,13 @@ l1_stats = get_lr_cv(lr_l1_model, 'L1 Reg')
 l2_stats = get_lr_cv(lr_l2_model, 'L2 Reg')
 ```
 
-    [L1 Reg] Classification accuracy for train set: 0.8853754940711462
+    [L1 Reg] Classification accuracy for train set: 0.8866106719367589
     [L1 Reg] Classification accuracy for test set: 0.8873517786561265
     [L2 Reg] Classification accuracy for train set: 0.6926877470355731
     [L2 Reg] Classification accuracy for test set: 0.6699604743083004
 
 
-L1 regularization performs much better than L2. The L1 regularized model achieves about $88.8\%$ accuracy in the training data and about $88.9\%$ in the test, well outperforming our baseline model. The L2 regularized model performs on par with our baseline, achieving a training accuracy of around $69.2\%$ and a test accuracy of $66.9\%$.
+L1 regularization performs much better than L2. The L1 regularized model achieves about 88.8% accuracy in the training data and about 88.9% in the test, well outperforming our baseline model. The L2 regularized model performs on par with our baseline, achieving a training accuracy of around 69.2% and a test accuracy of 66.9%.
 
 # kNN
 
@@ -243,7 +184,7 @@ print("[kNN] Classification accuracy for test set: ", acc_test[k_index])
     [kNN] Classification accuracy for test set:  0.6590909090909091
 
 
-Our kNN regressor performs at the same level as our baseline logistic classifier. The test set is at a $65.9\%$ accuracy while the training is at $63.1\%$. Additionally, we see that our $R^2$ score converges to roughly $0.1$.
+Our kNN regressor performs at the same level as our baseline logistic classifier. The test set is at a 65.9% accuracy while the training is at 63.1%. Additionally, we see that our $R^2$ score converges to roughly 0.1, which is not great.
 
 # LDA and QDA
 
@@ -276,7 +217,7 @@ print("[QDA] Classification accuracy for test set:",acc_qda_test)
     [QDA] Classification accuracy for test set: 0.866600790513834
 
 
-LDA performs better than QDA, and both perform above baseline. LDA achieves an accuracy of about $88.1\%$ in the training and $88.4\%$ in the testing data, while QDA ahieves an accuracy of about $86.6\%$ in the training and $86.7\%$ in the testing data.
+LDA performs better than QDA, and both perform above baseline. LDA achieves an accuracy of about 88.1% in the training and 88.4% in the testing data, while QDA ahieves an accuracy of about 86.6% in the training and 86.7% in the testing data.
 
 # Decision Trees
 
@@ -331,11 +272,9 @@ print("[Decision Tree Classifier] Mean classification accuracy training set: ",t
 print("Mean +/- 2 SD: (", lower[4],",",upper[4],")")
 ```
 
-    [Decision Tree Classifier] Mean classification accuracy training set:  0.8799404843657006
-    Mean +/- 2 SD: ( 0.8654360888676799 , 0.8899998250025148 )
+    [Decision Tree Classifier] Mean classification accuracy training set:  0.8796923499519297
+    Mean +/- 2 SD: ( 0.8649746226416641 , 0.8909557288057866 )
 
-
-We achieve the best cross-validated score at a tree depth of $6$ with an accuracy of $88.0\%$. Additionally, it had a relatively narrow spread in estimated performances, as there is a roughly $2\%$ difference between +/- two standard deviations.
 
 
 ```python
@@ -348,7 +287,7 @@ print("[Decision Tree Classifier] Mean classification accuracy test set: ", test
     [Decision Tree Classifier] Mean classification accuracy test set:  0.8903162055335968
 
 
-We see that it performs quite well, with an accuracy score of $88.7\%$, proving superior to all the other models we have tried so far.
+We achieve the best cross-validation score at a tree depth of 6, with an accuracy of 88.0%. Additionally, we observe a relatively narrow spread in estimated performances, as there is a roughly 2% difference between +/- two standard deviations. We see that this model also performs quite well in the test set, with an accuracy score of 88.7%, proving superior to all the other models we have tried so far.
 
 # Random Forest
 
@@ -377,11 +316,11 @@ print("[Random Forest] Classification accuracy for train set: ", train_score_rf)
 print("[Random Forest] Classification accuracy for test set:", test_score_rf)
 ```
 
-    [Random Forest] Classification accuracy for train set:  0.9261363636363636
-    [Random Forest] Classification accuracy for test set: 0.9219367588932806
+    [Random Forest] Classification accuracy for train set:  0.9300889328063241
+    [Random Forest] Classification accuracy for test set: 0.9229249011857708
 
 
-A random forest, at the same depth as the decision tree (namely a depth of 6) performs well too. The test data reaches an accuracy of about $92.6\%$ in the training at $91.5\%$ in the test. Bagging performed better in both the training and test sets.
+A random forest, at the same depth as the decision tree (namely a depth of 6) performs even better. The test data reaches an accuracy of about 92.6% in the training at 91.5% in the test. 
 
 # Bagging
 
@@ -468,11 +407,11 @@ print("[Bagging] Classification accuracy for train set: ", bagging_train_score)
 print("[Bagging] Classification accuracy for test set: ", bagging_test_score)
 ```
 
-    [Bagging] Classification accuracy for train set:  0.9375
-    [Bagging] Classification accuracy for test set:  0.9110671936758893
+    [Bagging] Classification accuracy for train set:  0.9370059288537549
+    [Bagging] Classification accuracy for test set:  0.9150197628458498
 
 
-The model clearly performed better after using bootstrapped data to fit it. It has increased from 88% on the training data to 94.0%, and from 88.1% on the test data to 90.4%.
+The model clearly performed better after using bootstrapped data to fit it. It has increased from 88% on the training data to 94.0%, and from 88.1% on the test data to 90.4%. This makes bagging the most accurate model we have tried so far.
 
 # Boosting
 
@@ -507,34 +446,34 @@ for i in range(1,5):
 ```
 
 
-![png](output_61_0.png)
+![png](output_60_0.png)
 
 
     Maximum test accuracy for depth of 1 is 0.9150197628458498 at 773 iterations
 
 
 
-![png](output_61_2.png)
+![png](output_60_2.png)
 
 
     Maximum test accuracy for depth of 2 is 0.9298418972332015 at 751 iterations
 
 
 
-![png](output_61_4.png)
+![png](output_60_4.png)
 
 
-    Maximum test accuracy for depth of 3 is 0.9258893280632411 at 500 iterations
+    Maximum test accuracy for depth of 3 is 0.9268774703557312 at 500 iterations
 
 
 
-![png](output_61_6.png)
+![png](output_60_6.png)
 
 
-    Maximum test accuracy for depth of 4 is 0.9229249011857708 at 530 iterations
+    Maximum test accuracy for depth of 4 is 0.9219367588932806 at 530 iterations
 
 
-We see based upon an AdaBoostClassifier the maximum test accuracy of $93.0\%$ is attained at a depth of $2$. This is attained after $751$ iterations. The AdaBoostClassifier is our best perfoming model so far.
+We see based upon an AdaBoostClassifier the maximum test accuracy of 93.0% is attained at a depth of 2. This is attained after 751 iterations. The AdaBoostClassifier is our most accurate model so far.
 
 # Neural Networks
 
@@ -544,10 +483,6 @@ We next created an artificial neural network to classify our playlist songs.
 ```python
 # check input and output dimensions
 input_dim_2 = x_train.shape[1]
-# push y to categorical
-# y_train_cat = keras.utils.to_categorical(y_train)[0]
-# y_test_cat = keras.utils.to_categorical(y_test)[0]
-# output_dim_2 = y_train_cat[1]
 output_dim_2 = 1
 print(input_dim_2,output_dim_2)
 ```
@@ -583,13 +518,13 @@ model2.summary()
     _________________________________________________________________
     Layer (type)                 Output Shape              Param #   
     =================================================================
-    dense_1 (Dense)              (None, 10)                150       
+    dense_46 (Dense)             (None, 10)                150       
     _________________________________________________________________
-    dense_2 (Dense)              (None, 10)                110       
+    dense_47 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_3 (Dense)              (None, 10)                110       
+    dense_48 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_4 (Dense)              (None, 1)                 11        
+    dense_49 (Dense)             (None, 1)                 11        
     =================================================================
     Total params: 381
     Trainable params: 381
@@ -608,21 +543,21 @@ model2_history = model2.fit(
 
 ```python
 # model loss
-print("loss: ", model2_history.history['loss'][-1])
-print("val loss: ", model2_history.history['val_loss'][-1])
-print("test loss: ", model2.evaluate(x_test, y_test, verbose=False))
-print("acc: ", model2_history.history['acc'][-1])
-print("val_acc: ", model2_history.history['val_acc'][-1])
+print("[Neural Net - Model 1] Loss: ", model2_history.history['loss'][-1])
+print("[Neural Net - Model 1] Val Loss: ", model2_history.history['val_loss'][-1])
+print("[Neural Net - Model 1] Test Loss: ", model2.evaluate(x_test, y_test, verbose=False))
+print("[Neural Net - Model 1] Accuracy: ", model2_history.history['acc'][-1])
+print("[Neural Net - Model 1] Val Accuracy: ", model2_history.history['val_acc'][-1])
 ```
 
-    loss:  8.234244749951268
-    val loss:  7.99534016447105
-    test loss:  [8.313879420163603, 0.48418972308456665]
-    acc:  0.4891304352537917
-    val_acc:  0.5039525682275946
+    [Neural Net - Model 1] Loss:  7.79790558079957
+    [Neural Net - Model 1] Val Loss:  8.034205742033103
+    [Neural Net - Model 1] Test Loss:  [7.719139232937055, 0.5158102769154334]
+    [Neural Net - Model 1] Accuracy:  0.5108695654529828
+    [Neural Net - Model 1] Val Accuracy:  0.49604743024106085
 
 
-Our initial accuracy isn't great. We achieve an accuracy of $48.9\%$ in the training and $50.4\%$ in the validation, and an accuracy of $48.4\%$ in the test. Let's see if we can improve our network to fit the data better.
+Our initial accuracy isn't great. We achieve an accuracy of 48.9% in the training and 50.4% in the validation, and an accuracy of 48.4% in the test. Let's see if we can improve our network to fit the data better.
 
 
 ```python
@@ -646,87 +581,87 @@ model3.summary()
     _________________________________________________________________
     Layer (type)                 Output Shape              Param #   
     =================================================================
-    dense_178 (Dense)            (None, 10)                150       
+    dense_50 (Dense)             (None, 10)                150       
     _________________________________________________________________
-    dense_179 (Dense)            (None, 10)                110       
+    dense_51 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_180 (Dense)            (None, 10)                110       
+    dense_52 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_181 (Dense)            (None, 10)                110       
+    dense_53 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_182 (Dense)            (None, 10)                110       
+    dense_54 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_183 (Dense)            (None, 10)                110       
+    dense_55 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_184 (Dense)            (None, 10)                110       
+    dense_56 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_185 (Dense)            (None, 10)                110       
+    dense_57 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_186 (Dense)            (None, 10)                110       
+    dense_58 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_187 (Dense)            (None, 10)                110       
+    dense_59 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_188 (Dense)            (None, 10)                110       
+    dense_60 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_189 (Dense)            (None, 10)                110       
+    dense_61 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_190 (Dense)            (None, 10)                110       
+    dense_62 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_191 (Dense)            (None, 10)                110       
+    dense_63 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_192 (Dense)            (None, 10)                110       
+    dense_64 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_193 (Dense)            (None, 10)                110       
+    dense_65 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_194 (Dense)            (None, 10)                110       
+    dense_66 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_195 (Dense)            (None, 10)                110       
+    dense_67 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_196 (Dense)            (None, 10)                110       
+    dense_68 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_197 (Dense)            (None, 10)                110       
+    dense_69 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_198 (Dense)            (None, 10)                110       
+    dense_70 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_199 (Dense)            (None, 10)                110       
+    dense_71 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_200 (Dense)            (None, 10)                110       
+    dense_72 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_201 (Dense)            (None, 10)                110       
+    dense_73 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_202 (Dense)            (None, 10)                110       
+    dense_74 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_203 (Dense)            (None, 10)                110       
+    dense_75 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_204 (Dense)            (None, 10)                110       
+    dense_76 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_205 (Dense)            (None, 10)                110       
+    dense_77 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_206 (Dense)            (None, 10)                110       
+    dense_78 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_207 (Dense)            (None, 10)                110       
+    dense_79 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_208 (Dense)            (None, 10)                110       
+    dense_80 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_209 (Dense)            (None, 10)                110       
+    dense_81 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_210 (Dense)            (None, 10)                110       
+    dense_82 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_211 (Dense)            (None, 10)                110       
+    dense_83 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_212 (Dense)            (None, 10)                110       
+    dense_84 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_213 (Dense)            (None, 10)                110       
+    dense_85 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_214 (Dense)            (None, 10)                110       
+    dense_86 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_215 (Dense)            (None, 10)                110       
+    dense_87 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_216 (Dense)            (None, 10)                110       
+    dense_88 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_217 (Dense)            (None, 10)                110       
+    dense_89 (Dense)             (None, 10)                110       
     _________________________________________________________________
-    dense_218 (Dense)            (None, 1)                 11        
+    dense_90 (Dense)             (None, 1)                 11        
     =================================================================
     Total params: 4,451
     Trainable params: 4,451
@@ -745,21 +680,21 @@ model3_history = model3.fit(
 
 ```python
 # model loss
-print("loss: ", model3_history.history['loss'][-1])
-print("val loss: ", model3_history.history['val_loss'][-1])
-print("test loss: ", model3.evaluate(x_test, y_test, verbose=False))
-print("acc: ", model3_history.history['acc'][-1])
-print("val_acc: ", model3_history.history['val_acc'][-1])
+print("[Neural Net - Model 2] Loss: ", model3_history.history['loss'][-1])
+print("[Neural Net - Model 2] Val Loss: ", model3_history.history['val_loss'][-1])
+print("[Neural Net - Model 2] Test Loss: ", model3.evaluate(x_test, y_test, verbose=False))
+print("[Neural Net - Model 2] Accuracy: ", model3_history.history['acc'][-1])
+print("[Neural Net - Model 2] Val Accuracy: ", model3_history.history['val_acc'][-1])
 ```
 
-    loss:  0.6255990149324947
-    val loss:  0.6216750636512851
-    test loss:  [0.6043826831659309, 0.6521739125722953]
-    acc:  0.6275048036022955
-    val_acc:  0.6296296308070053
+    [Neural Net - Model 2] Loss:  0.6267417644590524
+    [Neural Net - Model 2] Val Loss:  0.6291195959220698
+    [Neural Net - Model 2] Test Loss:  [0.6115785545040026, 0.6432806319398843]
+    [Neural Net - Model 2] Accuracy:  0.625857809154077
+    [Neural Net - Model 2] Val Accuracy:  0.6197530875971288
 
 
-Even after changing hyperparameters, our neural network does not perform very well. Using 40 layers and 300 epochs, the accuracy in the training data is $62.8\%$ while the accuracy in the test is $65.2\%$. This is baffling, because we expected our neural network to perform very well. Perhaps this mediocre perforance is due to limitations of our data set (only 14 features and <5000 songs), or of the specific methods we used.
+Even after changing hyperparameters, our neural network does not perform very well. Using 40 layers and 300 epochs, the accuracy in the training data is still 62.8% while the accuracy in the test is 65.2%. This is baffling, because we expected our neural network to perform very well. Perhaps this mediocre perforance is due to limitations of our data set (only 14 features and <5000 songs), or of the specific methods we used.
 
 # Model Selection
 
