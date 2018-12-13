@@ -222,7 +222,7 @@ print("[kNN] Classification accuracy for test set: ", acc_test[k_index])
     [kNN] Classification accuracy for test set:  0.6590909090909091
 
 
-Our kNN regressor performs at the same level as our baseline logistic classifier. The test set is at a 65.9% accuracy while the training is at 63.1%. Additionally, we see that our $R^2$ score converges to roughly 0.1, which is not great.
+Our kNN regressor performs at the same level as our baseline logistic classifier. The test set is at a 65.9% accuracy while the training is at 63.1%.
 
 # LDA and QDA
 
